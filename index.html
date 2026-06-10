@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
 <title>Capítulo 24 — Campo Eléctrico | Física Tippens</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <style>
@@ -204,10 +205,429 @@
   .note { font-size: 12px; color: var(--text-secondary); font-style: italic; margin-top: 6px; }
   hr.section-sep { border: none; border-top: 2px dashed var(--gray-mid); margin: 28px 0; }
   .target-emoji { font-size: 16px; }
+=======
+<title>Capítulo 24 – Campos Eléctricos | Guía de Estudio</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+<style>
+  :root {
+    --blue-50: #EFF6FF;
+    --blue-100: #DBEAFE;
+    --blue-200: #BFDBFE;
+    --blue-400: #60A5FA;
+    --blue-600: #2563EB;
+    --blue-800: #1E40AF;
+    --blue-900: #1E3A8A;
+    --amber-50: #FFFBEB;
+    --amber-100: #FEF3C7;
+    --amber-300: #FCD34D;
+    --amber-500: #F59E0B;
+    --amber-700: #B45309;
+    --green-50: #F0FDF4;
+    --green-100: #DCFCE7;
+    --green-600: #16A34A;
+    --green-700: #15803D;
+    --green-800: #166534;
+    --orange-50: #FFF7ED;
+    --orange-100: #FFEDD5;
+    --orange-600: #EA580C;
+    --red-100: #FEE2E2;
+    --red-700: #B91C1C;
+    --navy: #0F172A;
+    --text: #1E293B;
+    --muted: #64748B;
+    --border: #E2E8F0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #F8FAFC;
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    padding: 0 0 80px;
+  }
+  /* ── HEADER ── */
+  .hero {
+    background: var(--blue-900);
+    color: #fff;
+    padding: 48px 32px 36px;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue-400);
+    margin-bottom: 10px;
+  }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .hero p { color: #94A3B8; font-size: 0.95rem; font-style: italic; }
+  .pill-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #CBD5E1;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 48px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--blue-600);
+  }
+  .section-header .icon {
+    width: 36px; height: 36px;
+    background: var(--blue-600);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 16px; font-family: sans-serif; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section-header h2 { font-size: 1.35rem; color: var(--blue-800); font-family: sans-serif; }
+
+  /* ── DECISION TABLE ── */
+  .decision-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 16px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .decision-table thead tr { background: var(--blue-800); color: white; }
+  .decision-table thead th { padding: 12px 16px; text-align: left; font-weight: 600; }
+  .decision-table tbody tr:nth-child(odd) { background: var(--blue-50); }
+  .decision-table tbody tr:nth-child(even) { background: white; }
+  .decision-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .decision-table td:first-child { font-weight: 600; color: var(--blue-800); }
+  .decision-table .formula-tag {
+    display: inline-block;
+    background: var(--blue-100);
+    color: var(--blue-800);
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* ── FORMULA BLOCK ── */
+  .formula-block {
+    background: var(--green-50);
+    border-left: 4px solid var(--green-600);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin: 18px 0;
+  }
+  .formula-block .formula-name {
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green-600);
+    margin-bottom: 10px;
+  }
+  .formula-block .mjx-wrap {
+    text-align: center;
+    margin: 12px 0;
+    font-size: 1.05em;
+  }
+  .formula-block .formula-note {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: var(--green-800);
+    font-style: italic;
+    margin-top: 6px;
+    text-align: center;
+  }
+  .var-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .var-table th {
+    background: var(--green-100);
+    color: var(--green-800);
+    padding: 6px 10px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--green-600);
+  }
+  .var-table td { padding: 6px 10px; border-bottom: 1px solid #E0F2E9; }
+  .var-table tr:last-child td { border-bottom: none; }
+  .var-table td:first-child { font-weight: 700; font-family: 'Courier New', monospace; color: var(--green-700); }
+  .when-to-use {
+    background: var(--green-100);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: var(--green-800);
+    margin-top: 12px;
+  }
+  .when-to-use strong { color: var(--green-700); }
+
+  /* ── CONCEPT CARD ── */
+  .concept-card {
+    background: var(--blue-50);
+    border: 1.5px solid var(--blue-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 18px 0;
+  }
+  .concept-card .concept-title {
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blue-800);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .concept-card .concept-title .badge {
+    background: var(--blue-600);
+    color: white;
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+  }
+  .concept-def { margin-bottom: 8px; }
+  .concept-def strong { color: var(--blue-800); }
+
+  /* ── ANALOGY BOX ── */
+  .analogy {
+    background: var(--amber-50);
+    border-left: 4px solid var(--amber-500);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 18px;
+    margin: 10px 0;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: var(--amber-700);
+  }
+  .analogy::before { content: "🔎  Analogía: "; font-weight: 700; }
+
+  /* ── KEY RULE ── */
+  .key-rule {
+    background: var(--blue-100);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 10px 0;
+    font-family: sans-serif;
+    font-size: 13.5px;
+    color: var(--blue-900);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .key-rule::before { content: "⚡"; font-size: 15px; flex-shrink: 0; }
+
+  /* ── SOLVED EXAMPLE ── */
+  .example {
+    border: 1.5px solid var(--blue-300, #93C5FD);
+    border-left: 4px solid var(--blue-600);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+    background: white;
+  }
+  .example .ex-header {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue-600);
+    margin-bottom: 10px;
+  }
+  .example .ex-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .step {
+    display: flex;
+    gap: 14px;
+    margin: 12px 0;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 26px; height: 26px; min-width: 26px;
+    background: var(--blue-600);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: sans-serif;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { font-family: sans-serif; font-size: 14px; line-height: 1.6; }
+  .step-content .label { font-weight: 600; color: var(--blue-800); }
+  .result-box {
+    background: var(--blue-800);
+    color: white;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-top: 16px;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 1.05rem;
+  }
+  .result-box strong { font-size: 1.15rem; letter-spacing: 0.5px; }
+
+  /* ── CHALLENGE SECTION ── */
+  .challenge-section {
+    background: var(--orange-50);
+    border: 1.5px solid #FED7AA;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+  .challenge-header {
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange-600);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .challenge-header .star { font-size: 18px; }
+
+  /* ── ERROR TABLE ── */
+  .error-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 16px 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .error-table thead tr { background: var(--red-100); }
+  .error-table thead th { padding: 10px 16px; text-align: left; color: var(--red-700); font-weight: 700; }
+  .error-table tbody tr { background: white; border-bottom: 1px solid var(--border); }
+  .error-table tbody tr:nth-child(odd) { background: #FFF5F5; }
+  .error-table td { padding: 10px 16px; vertical-align: top; }
+  .error-table td:first-child { color: var(--red-700); font-weight: 600; }
+  .error-table td:last-child { color: var(--green-700); }
+
+  /* ── CHEATSHEET ── */
+  .cheatsheet {
+    background: var(--navy);
+    color: #E2E8F0;
+    border-radius: 14px;
+    padding: 32px;
+    margin: 32px 0;
+    font-family: sans-serif;
+  }
+  .cheatsheet h3 {
+    color: #F1F5F9;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 10px;
+  }
+  .cs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .cs-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .cs-card .cs-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blue-400);
+    margin-bottom: 6px;
+  }
+  .cs-card .cs-eq {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #F8FAFC;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .cs-card .cs-cond {
+    font-size: 11px;
+    color: #94A3B8;
+    line-height: 1.4;
+  }
+  .cs-units {
+    font-size: 12px;
+    color: #94A3B8;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 14px;
+    line-height: 1.8;
+  }
+  .cs-units span { color: #CBD5E1; font-weight: 600; }
+
+  /* ── MISC ── */
+  .data-dado { background: #EFF6FF; border-radius: 6px; padding: 8px 14px; margin: 8px 0; font-family: sans-serif; font-size: 13px; color: var(--blue-800); }
+  .data-dado strong { color: var(--blue-600); }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  .subsection-label {
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 28px 0 10px;
+  }
+  p { margin-bottom: 12px; }
+  .mjx-center { text-align: center; margin: 14px 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.5rem; }
+    .container { padding: 0 14px; }
+    .cheatsheet { padding: 20px 16px; }
+    .cs-grid { grid-template-columns: 1fr; }
+    .decision-table { font-size: 12px; }
+  }
+>>>>>>> b969659c23d4eca670aee8b1b0ab60330b94d9f5
 </style>
 </head>
 <body>
 
+<<<<<<< HEAD
 <!-- NAV -->
 <nav>
   <span class="nav-title">Cap. 24 · Campo Eléctrico</span>
@@ -231,11 +651,25 @@
     <span>🟡 Modo: 1 semana</span>
     <span>📚 Materia: Física</span>
     <span>🎓 12vo Grado</span>
+=======
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <div class="eyebrow">Paul Tippens · Física</div>
+  <h1>Capítulo 24 — Campos Eléctricos</h1>
+  <p>Guía de estudio intensiva · 3 días para el examen</p>
+  <div class="pill-row">
+    <span class="pill">Ley de Coulomb</span>
+    <span class="pill">Campo E</span>
+    <span class="pill">Líneas de campo</span>
+    <span class="pill">Ley de Gauss</span>
+    <span class="pill">Condensador</span>
+>>>>>>> b969659c23d4eca670aee8b1b0ab60330b94d9f5
   </div>
 </div>
 
 <div class="container">
 
+<<<<<<< HEAD
 <!-- LEE ESTO PRIMERO -->
 <div class="lee-primero">
   <h2>📌 Lee esto primero</h2>
@@ -1131,9 +1565,744 @@
         <tr><td>#11</td><td>Equilibrio: 20mg, E=2000N/C</td><td>6.125×10¹¹ electrones</td></tr>
       </table>
     </div>
+=======
+<!-- ══════════════ TABLA DE DECISIÓN ══════════════ -->
+<div class="section-header">
+  <div class="icon">①</div>
+  <h2>Tabla de decisión — "Si el problema te da X, usa la fórmula Y"</h2>
+</div>
+
+<table class="decision-table">
+  <thead>
+    <tr>
+      <th>El problema te da…</th>
+      <th>Quieres encontrar…</th>
+      <th>Usa esta fórmula</th>
+      <th>Sección</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fuerza <em>F</em> sobre una carga <em>q</em></td>
+      <td>Campo \(E\) en ese punto</td>
+      <td><span class="formula-tag">E = F/q</span></td>
+      <td>24.1</td>
+    </tr>
+    <tr>
+      <td>Carga \(Q\), distancia \(r\)</td>
+      <td>Intensidad del campo \(E\)</td>
+      <td><span class="formula-tag">E = kQ/r²</span></td>
+      <td>24.2</td>
+    </tr>
+    <tr>
+      <td>Varias cargas con posiciones</td>
+      <td>Campo resultante en un punto</td>
+      <td><span class="formula-tag">E = E₁+E₂+… (vectorial)</span></td>
+      <td>24.2</td>
+    </tr>
+    <tr>
+      <td>Densidad de carga \(\sigma\), placa infinita</td>
+      <td>Campo fuera de la placa</td>
+      <td><span class="formula-tag">E = σ/(2ε₀)</span></td>
+      <td>24.5</td>
+    </tr>
+    <tr>
+      <td>Densidad de carga \(\sigma\), condensador (dos placas)</td>
+      <td>Campo entre las placas</td>
+      <td><span class="formula-tag">E = σ/ε₀</span></td>
+      <td>24.5</td>
+    </tr>
+    <tr>
+      <td>Carga \(q\) encerrada en una superficie gaussiana</td>
+      <td>Verificar carga o campo</td>
+      <td><span class="formula-tag">∑ε₀EₙA = ∑q</span></td>
+      <td>24.4</td>
+    </tr>
+    <tr>
+      <td>Campo \(E\) conocido y carga \(q\)</td>
+      <td>Fuerza sobre \(q\)</td>
+      <td><span class="formula-tag">F = qE</span></td>
+      <td>24.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="divider">
+
+<!-- ══════════════ SECCIÓN 1: CONCEPTOS ══════════════ -->
+<div class="section-header">
+  <div class="icon">②</div>
+  <h2>Conceptos fundamentales</h2>
+</div>
+
+<!-- Campo eléctrico -->
+<div class="concept-card">
+  <div class="concept-title">
+    <span class="badge">Concepto 1</span>
+    Campo Eléctrico \(E\)
+  </div>
+  <p class="concept-def"><strong>Definición simple:</strong> Región del espacio donde una carga eléctrica experimenta una fuerza. Se define como la fuerza por unidad de carga positiva.</p>
+  <div class="analogy">Imagina que el campo eléctrico es como la gravedad alrededor de la Tierra: la Tierra crea un "campo gravitacional" que actúa sobre cualquier masa que ponga cerca. Una carga \(Q\) crea un campo que actúa sobre cualquier otra carga que coloques a su alrededor — incluso sin que haya contacto físico.</div>
+  <div class="key-rule">Regla clave: El campo existe en el espacio aunque no haya carga de prueba ahí. La dirección es la misma en la que se movería una carga <strong>positiva</strong> si la colocas en ese punto.</div>
+</div>
+
+<!-- Líneas de campo -->
+<div class="concept-card">
+  <div class="concept-title">
+    <span class="badge">Concepto 2</span>
+    Líneas del Campo Eléctrico
+  </div>
+  <p class="concept-def"><strong>Definición simple:</strong> Líneas imaginarias cuya dirección en cada punto coincide con la dirección del campo eléctrico en ese punto. La densidad de las líneas indica la intensidad del campo.</p>
+  <div class="analogy">Como las líneas de flujo del agua en un río: donde se aprietan, la corriente es fuerte; donde se separan, es débil. Salen de cargas positivas y entran en cargas negativas.</div>
+  <div class="key-rule">Regla clave: Las líneas nunca se cruzan entre sí. Más densidad = campo más intenso. Ninguna línea comienza ni termina en el vacío (solo en cargas o en el infinito).</div>
+</div>
+
+<!-- Densidad de carga -->
+<div class="concept-card">
+  <div class="concept-title">
+    <span class="badge">Concepto 3</span>
+    Densidad de Carga Superficial \(\sigma\)
+  </div>
+  <p class="concept-def"><strong>Definición simple:</strong> Cantidad de carga distribuida por unidad de área en la superficie de un conductor.</p>
+  <div class="analogy">Como la densidad de personas en una plaza: si 100 personas están en 10 m², la densidad es 10 personas/m². Aquí son coulombs por metro cuadrado.</div>
+  <div class="key-rule">Regla clave: En un conductor cargado, TODA la carga reside en la superficie exterior — el interior tiene \(E = 0\). Esto lo prueba la Ley de Gauss.</div>
+</div>
+
+<!-- Ley de Gauss -->
+<div class="concept-card">
+  <div class="concept-title">
+    <span class="badge">Concepto 4</span>
+    Ley de Gauss
+  </div>
+  <p class="concept-def"><strong>Definición simple:</strong> El número total de líneas de campo que cruzan cualquier superficie cerrada (hacia afuera) es numéricamente igual a la carga neta contenida dentro de esa superficie.</p>
+  <div class="analogy">Imagina una caja invisible alrededor de un foco. Si el foco emite 1000 rayos de luz, exactamente 1000 rayos atraviesan cualquier caja que lo encierre — no importa la forma ni el tamaño de la caja. Igual pasa con las líneas de campo eléctrico y las cargas.</div>
+  <div class="key-rule">Regla clave: La Ley de Gauss es más poderosa que la fórmula \(kQ/r^2\) porque funciona para distribuciones continuas de carga (placas, esferas, cilindros), no solo para cargas puntuales.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ══════════════ SECCIÓN 2: FÓRMULAS ══════════════ -->
+<div class="section-header">
+  <div class="icon">③</div>
+  <h2>Fórmulas — todo lo que debes dominar</h2>
+</div>
+
+<!-- F1: E = F/q -->
+<div class="formula-block">
+  <div class="formula-name">Fórmula 1 — Definición del campo eléctrico (Ec. 24.4)</div>
+  <div class="mjx-wrap">
+    $$E = \frac{F}{q}$$
+  </div>
+  <div class="formula-note">El campo es la fuerza que experimentaría una carga unitaria positiva colocada en ese punto.</div>
+  <table class="var-table">
+    <thead><tr><th>Símbolo</th><th>Significado</th><th>Unidad SI</th></tr></thead>
+    <tbody>
+      <tr><td>E</td><td>Intensidad del campo eléctrico</td><td>N/C</td></tr>
+      <tr><td>F</td><td>Fuerza sobre la carga de prueba</td><td>N (Newton)</td></tr>
+      <tr><td>q</td><td>Carga de prueba (positiva)</td><td>C (Coulomb)</td></tr>
+    </tbody>
+  </table>
+  <div class="when-to-use"><strong>Cuándo usarla:</strong> Cuando el problema te da directamente la fuerza medida y la carga sobre la que actúa, y pide el campo en ese punto.</div>
+</div>
+
+<!-- F2: E = kQ/r² -->
+<div class="formula-block">
+  <div class="formula-name">Fórmula 2 — Campo de una carga puntual (Ec. 24.7)</div>
+  <div class="mjx-wrap">
+    $$E = \frac{kQ}{r^2} \qquad k = 9 \times 10^9 \;\text{N·m}^2/\text{C}^2$$
+  </div>
+  <div class="formula-note">Campo creado por una carga \(Q\) a una distancia \(r\).</div>
+  <table class="var-table">
+    <thead><tr><th>Símbolo</th><th>Significado</th><th>Unidad SI</th></tr></thead>
+    <tbody>
+      <tr><td>k</td><td>Constante de Coulomb</td><td>9×10⁹ N·m²/C²</td></tr>
+      <tr><td>Q</td><td>Carga fuente (la que crea el campo)</td><td>C</td></tr>
+      <tr><td>r</td><td>Distancia de Q al punto de interés</td><td>m</td></tr>
+    </tbody>
+  </table>
+  <div class="when-to-use"><strong>Cuándo usarla:</strong> Siempre que tengas una carga puntual (o esférica) y quieras el campo a una distancia \(r\). Es la más común en los problemas básicos.</div>
+</div>
+
+<!-- F3: Superposición -->
+<div class="formula-block">
+  <div class="formula-name">Fórmula 3 — Superposición vectorial (Ec. 24.8)</div>
+  <div class="mjx-wrap">
+    $$\vec{E}_{\text{total}} = \vec{E}_1 + \vec{E}_2 + \vec{E}_3 + \cdots$$
+  </div>
+  <div class="formula-note">El campo resultante es la <strong>suma vectorial</strong> de los campos individuales. Usa componentes x e y.</div>
+  <table class="var-table">
+    <thead><tr><th>Paso</th><th>Acción</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Calcular la magnitud de cada \(E_i = kQ_i/r_i^2\)</td></tr>
+      <tr><td>2</td><td>Determinar la dirección de cada \(E_i\) (imagina carga positiva de prueba)</td></tr>
+      <tr><td>3</td><td>Descomponer en \(E_{ix}\) y \(E_{iy}\)</td></tr>
+      <tr><td>4</td><td>Sumar componentes: \(E_x = \sum E_{ix}\), \(E_y = \sum E_{iy}\)</td></tr>
+      <tr><td>5</td><td>Calcular magnitud: \(E = \sqrt{E_x^2 + E_y^2}\); ángulo: \(\theta = \arctan(E_y/E_x)\)</td></tr>
+    </tbody>
+  </table>
+  <div class="when-to-use"><strong>Cuándo usarla:</strong> Cuando hay 2 o más cargas puntuales y el punto de interés no es colineal con todas ellas (hay componentes en dos dimensiones).</div>
+</div>
+
+<!-- F4: Ley de Gauss -->
+<div class="formula-block">
+  <div class="formula-name">Fórmula 4 — Ley de Gauss (Ec. 24.15)</div>
+  <div class="mjx-wrap">
+    $$\sum \varepsilon_0 E_n A = \sum q \qquad \varepsilon_0 = 8.85 \times 10^{-12}\;\text{C}^2/(\text{N·m}^2)$$
+  </div>
+  <div class="formula-note">La suma de \(\varepsilon_0 E_n A\) sobre toda la superficie gaussiana = carga neta encerrada.</div>
+  <table class="var-table">
+    <thead><tr><th>Símbolo</th><th>Significado</th><th>Unidad SI</th></tr></thead>
+    <tbody>
+      <tr><td>ε₀</td><td>Permitividad del espacio libre</td><td>C²/(N·m²)</td></tr>
+      <tr><td>Eₙ</td><td>Componente normal del campo a la superficie</td><td>N/C</td></tr>
+      <tr><td>A</td><td>Área de la superficie gaussiana</td><td>m²</td></tr>
+      <tr><td>q</td><td>Carga neta encerrada</td><td>C</td></tr>
+    </tbody>
+  </table>
+  <div class="when-to-use"><strong>Cuándo usarla:</strong> Para distribuciones continuas (placas, esferas, cilindros). Requiere construir una superficie gaussiana con simetría conveniente.</div>
+</div>
+
+<!-- F5: Placa infinita -->
+<div class="formula-block">
+  <div class="formula-name">Fórmula 5 — Campo de una placa infinita (Ec. 24.17)</div>
+  <div class="mjx-wrap">
+    $$E = \frac{\sigma}{2\varepsilon_0}$$
+  </div>
+  <div class="formula-note">El campo es constante e independiente de la distancia a la placa.</div>
+  <div class="when-to-use"><strong>Cuándo usarla:</strong> Placa única de carga. Las dimensiones de la placa deben ser mucho mayores que la distancia al punto de interés.</div>
+</div>
+
+<!-- F6: Condensador -->
+<div class="formula-block">
+  <div class="formula-name">Fórmula 6 — Campo entre placas de un condensador (Ec. 24.18)</div>
+  <div class="mjx-wrap">
+    $$E = \frac{\sigma}{\varepsilon_0}$$
+  </div>
+  <div class="formula-note">El doble que una sola placa, porque los dos campos \(E_1 + E_2\) van en la misma dirección entre las placas. Fuera del condensador, se cancelan (\(E = 0\)).</div>
+  <div class="when-to-use"><strong>Cuándo usarla:</strong> Dos placas paralelas con cargas opuestas. Piden el campo en la región entre ellas.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ══════════════ SECCIÓN 3: EJEMPLOS RESUELTOS ══════════════ -->
+<div class="section-header">
+  <div class="icon">④</div>
+  <h2>Ejemplos resueltos paso a paso</h2>
+</div>
+
+<!-- Ejemplo 1 -->
+<div class="example">
+  <div class="ex-header">Ejemplo 1 — Campo por definición</div>
+  <div class="ex-title">Una carga de +2 μC experimenta una fuerza descendente de 8×10⁻⁴ N. ¿Cuál es el campo en ese punto?</div>
+
+  <div class="data-dado">
+    <strong>Datos:</strong> \(q = +2 \times 10^{-6}\text{ C}\) &nbsp;|&nbsp;
+    \(F = 8 \times 10^{-4}\text{ N (↓)}\) &nbsp;|&nbsp;
+    <strong>Busco:</strong> \(E = ?\)
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <span class="label">Identifico la fórmula:</span> Tengo \(F\) y \(q\) → uso \(E = F/q\) (Ec. 24.4).
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <span class="label">Sustituyo con unidades:</span>
+      $$E = \frac{F}{q} = \frac{8 \times 10^{-4}\text{ N}}{2 \times 10^{-6}\text{ C}}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <span class="label">Opero:</span>
+      $$E = \frac{8 \times 10^{-4}}{2 \times 10^{-6}} = \frac{8}{2} \times 10^{-4-(-6)} = 4 \times 10^{2}\text{ N/C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <span class="label">Dirección:</span> La carga es positiva y la fuerza es hacia abajo → el campo apunta hacia abajo (misma dirección que la fuerza sobre una carga positiva).
+    </div>
+  </div>
+  <div class="result-box">
+    <strong>E = 400 N/C, hacia abajo</strong>
+  </div>
+</div>
+
+<!-- Ejemplo 2 -->
+<div class="example">
+  <div class="ex-header">Ejemplo 2 — Campo de carga puntual</div>
+  <div class="ex-title">¿Cuál es la intensidad del campo eléctrico a una distancia de 2 m de una carga de −12 μC?</div>
+
+  <div class="data-dado">
+    <strong>Datos:</strong> \(Q = 12 \times 10^{-6}\text{ C}\) (tomo la magnitud) &nbsp;|&nbsp;
+    \(r = 2\text{ m}\) &nbsp;|&nbsp; \(k = 9\times10^9\) &nbsp;|&nbsp;
+    <strong>Busco:</strong> \(E = ?\)
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <span class="label">Fórmula:</span> Carga puntual y distancia → \(E = kQ/r^2\).
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <span class="label">Sustituyo:</span>
+      $$E = \frac{(9\times10^9)(12\times10^{-6})}{(2)^2}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <span class="label">Numerador:</span> \(9\times10^9 \times 12\times10^{-6} = 108\times10^3 = 1.08\times10^5\)
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <span class="label">Denominador:</span> \(r^2 = (2)^2 = 4\text{ m}^2\)
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <span class="label">División:</span>
+      $$E = \frac{1.08\times10^5}{4} = 2.70\times10^4\text{ N/C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <span class="label">Dirección:</span> La carga es negativa → el campo apunta <em>hacia</em> la carga (radialmente hacia adentro).
+    </div>
+  </div>
+  <div class="result-box">
+    <strong>E = 2.70 × 10⁴ N/C, hacia la carga Q</strong>
+  </div>
+</div>
+
+<!-- Ejemplo 3: Superposición -->
+<div class="example">
+  <div class="ex-header">Ejemplo 3 — Superposición vectorial (Ejemplo 24.4 del libro)</div>
+  <div class="ex-title">
+    \(q_1 = -6\text{ nC}\) y \(q_2 = +8\text{ nC}\) separadas 12 cm. El punto A está 4 cm a la izquierda de \(q_1\) y el punto B está a 9 cm arriba de \(q_1\) y a 15 cm de \(q_2\) (ángulo 37°). Determina \(E\) en el punto A.
+  </div>
+
+  <div class="data-dado">
+    <strong>Punto A:</strong> \(r_1 = 0.04\text{ m}\) desde \(q_1\) &nbsp;|&nbsp; \(r_2 = 0.08\text{ m}\) desde \(q_2\)
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <span class="label">Dirección de cada campo en A:</span> Una carga de prueba positiva en A sería atraída hacia \(q_1 = -6\text{ nC}\) (hacia la derecha) y atraída hacia \(q_2 = +8\text{ nC}\)... espera: \(q_2\) es positiva, repele → empuja hacia la izquierda. Ambos campos apuntan a la izquierda.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <span class="label">Magnitud de \(E_1\):</span>
+      $$E_1 = \frac{kq_1}{r_1^2} = \frac{(9\times10^9)(6\times10^{-9})}{(0.04)^2} = \frac{54}{0.0016} = 3.38\times10^4\text{ N/C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <span class="label">Magnitud de \(E_2\):</span>
+      $$E_2 = \frac{(9\times10^9)(8\times10^{-9})}{(0.08)^2} = \frac{72}{0.0064} = 1.12\times10^4\text{ N/C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <span class="label">Suma vectorial (misma dirección → suma algebraica):</span>
+      $$E_A = E_1 + E_2 = 3.38\times10^4 + 1.12\times10^4 = 4.50\times10^4\text{ N/C}$$
+    </div>
+  </div>
+  <div class="result-box">
+    <strong>E_A = 4.50 × 10⁴ N/C, hacia la izquierda</strong>
+  </div>
+</div>
+
+<!-- Ejemplo 4: Gauss + Placa -->
+<div class="example">
+  <div class="ex-header">Ejemplo 4 — Ley de Gauss: placa de carga</div>
+  <div class="ex-title">Calcula el campo eléctrico fuera de una placa infinita de carga positiva con densidad \(\sigma\).</div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <span class="label">Superficie gaussiana:</span> Se elige un cilindro que atraviesa la placa, con un extremo a cada lado. Área de cada tapa = \(A\).
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <span class="label">Carga encerrada:</span> Solo la parte de la placa dentro del cilindro:
+      $$\sum q = \sigma A$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <span class="label">Aplico Ley de Gauss:</span> El campo sale perpendicularmente por las dos tapas:
+      $$\varepsilon_0 E A + \varepsilon_0 E A = \sigma A$$
+      $$2\varepsilon_0 E A = \sigma A$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <span class="label">Cancelo \(A\) y despejo \(E\):</span>
+      $$E = \frac{\sigma}{2\varepsilon_0}$$
+    </div>
+  </div>
+  <div class="result-box">
+    <strong>\(E = \dfrac{\sigma}{2\varepsilon_0}\) — constante, independiente de la distancia a la placa</strong>
+  </div>
+</div>
+
+<!-- Ejemplo 5: Condensador -->
+<div class="example">
+  <div class="ex-header">Ejemplo 5 — Condensador de placas paralelas</div>
+  <div class="ex-title">Dos placas con \(\sigma = 4\;\mu\text{C/m}^2\). ¿Cuál es el campo entre ellas?</div>
+
+  <div class="data-dado">
+    <strong>Datos:</strong> \(\sigma = 4\times10^{-6}\text{ C/m}^2\) &nbsp;|&nbsp;
+    \(\varepsilon_0 = 8.85\times10^{-12}\text{ C}^2/(\text{N·m}^2)\)
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <span class="label">Fórmula para condensador:</span> \(E = \sigma/\varepsilon_0\) (los dos campos se suman entre las placas).
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <span class="label">Sustituyo:</span>
+      $$E = \frac{4\times10^{-6}}{8.85\times10^{-12}}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <span class="label">Opero:</span>
+      $$E = \frac{4}{8.85} \times 10^{-6-(-12)} = 0.452\times10^6 = 4.52\times10^5\text{ N/C}$$
+    </div>
+  </div>
+  <div class="result-box">
+    <strong>E = 4.52 × 10⁵ N/C (fuera de las placas: E = 0)</strong>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══════════════ TABLA DE ERRORES ══════════════ -->
+<div class="section-header">
+  <div class="icon">⑤</div>
+  <h2>Errores comunes y cómo evitarlos</h2>
+</div>
+
+<table class="error-table">
+  <thead>
+    <tr>
+      <th>❌ Error típico</th>
+      <th>✅ Cómo evitarlo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Usar el signo de la carga (−) en la fórmula de magnitud \(E = kQ/r^2\)</td>
+      <td>La magnitud es siempre positiva. El signo determina la <em>dirección</em>, no la magnitud. Aplica el signo al elegir hacia dónde apunta \(\vec{E}\).</td>
+    </tr>
+    <tr>
+      <td>Sumar campos como escalares cuando no son paralelos</td>
+      <td>Si los vectores forman ángulo, siempre descompón en componentes \(x\) e \(y\). Suma por separado y luego calcula la resultante con Pitágoras.</td>
+    </tr>
+    <tr>
+      <td>Confundir \(E = \sigma/\varepsilon_0\) con \(E = \sigma/(2\varepsilon_0)\)</td>
+      <td>Una placa sola → divide entre 2. Dos placas (condensador) → no divides (los dos campos se suman). Haz el dibujo primero.</td>
+    </tr>
+    <tr>
+      <td>Olvidar convertir μC → C o mm → m</td>
+      <td>1 μC = 10⁻⁶ C &nbsp;|&nbsp; 1 nC = 10⁻⁹ C &nbsp;|&nbsp; 1 cm = 0.01 m. Convierte ANTES de sustituir.</td>
+    </tr>
+    <tr>
+      <td>Creer que el campo depende de la carga de prueba \(q\)</td>
+      <td>El campo \(E\) lo crea la carga fuente \(Q\) y depende de \(r\). La carga de prueba \(q\) es solo para medirlo. \(E\) existe aunque no haya carga de prueba.</td>
+    </tr>
+    <tr>
+      <td>Aplicar \(E = kQ/r^2\) dentro de un conductor cargado</td>
+      <td>Dentro de un conductor en equilibrio, el campo es siempre cero. Toda la carga está en la superficie.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="divider">
+
+<!-- ══════════════ SECCIÓN DIFICULTAD EXTRA ══════════════ -->
+<div class="section-header">
+  <div class="icon">⑥</div>
+  <h2>★ Dificultad extra — Problemas desafiantes</h2>
+</div>
+
+<!-- Problema 1 extra -->
+<div class="challenge-section">
+  <div class="challenge-header">
+    <span class="star">★</span>
+    Problema Extra 1 — Dos cargas, punto con campo cero (tipo Prob. 24.28)
+  </div>
+  <p style="font-family: sans-serif; font-size: 14px; margin-bottom: 12px;">
+    Una carga de \(-2\text{ nC}\) está en \(x = 0\) y una de \(+8\text{ nC}\) está en \(x = 4\text{ cm}\). ¿En qué punto del eje \(x\) el campo resultante es cero?
+  </p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <span class="label">Análisis de dirección:</span> Para que \(E = 0\), los dos campos deben ser iguales y opuestos. La carga pequeña (\(-2\text{ nC}\)) atrae hacia la derecha y la grande (\(+8\text{ nC}\)) repele hacia la izquierda. Esto solo puede ocurrir a la <strong>izquierda</strong> de \(-2\text{ nC}\) (afuera del segmento, del lado de la carga pequeña).
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <span class="label">Planteo:</span> Sea \(d\) la distancia al punto desde la carga \(-2\text{ nC}\). Entonces la distancia a \(+8\text{ nC}\) es \((d + 0.04)\). Igualo magnitudes:
+      $$\frac{k(2\times10^{-9})}{d^2} = \frac{k(8\times10^{-9})}{(d+0.04)^2}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <span class="label">Cancelo \(k\) y simplifico:</span>
+      $$\frac{2}{d^2} = \frac{8}{(d+0.04)^2}$$
+      $$2(d+0.04)^2 = 8d^2$$
+      $$(d+0.04)^2 = 4d^2$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <span class="label">Raíz cuadrada (tomo raíz positiva):</span>
+      $$d + 0.04 = 2d \implies d = 0.04\text{ m} = 4\text{ cm}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <span class="label">Verificación rápida:</span>
+      $$E_1 = \frac{(9\times10^9)(2\times10^{-9})}{(0.04)^2} = \frac{18}{0.0016} = 11250\text{ N/C}$$
+      $$E_2 = \frac{(9\times10^9)(8\times10^{-9})}{(0.08)^2} = \frac{72}{0.0064} = 11250\text{ N/C} \;\checkmark$$
+    </div>
+  </div>
+  <div class="result-box" style="background: var(--orange-600);">
+    <strong>El campo es cero a 4 cm a la izquierda de la carga −2 nC (es decir, en x = −4 cm)</strong>
+  </div>
+</div>
+
+<!-- Problema 2 extra -->
+<div class="challenge-section">
+  <div class="challenge-header">
+    <span class="star">★★</span>
+    Problema Extra 2 — Campo en el centro de un triángulo (tipo Prob. 24.29)
+  </div>
+  <p style="font-family: sans-serif; font-size: 14px; margin-bottom: 12px;">
+    Cargas de \(-2\;\mu\text{C}\) y \(+4\;\mu\text{C}\) en dos esquinas de la base de un triángulo equilátero de lado 10 cm. Halla el campo eléctrico en el vértice superior.
+  </p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <span class="label">Geometría:</span> Triángulo equilátero: todos los lados = 0.10 m. La carga \(-2\;\mu\text{C}\) está en la esquina inferior izquierda (A), \(+4\;\mu\text{C}\) en la inferior derecha (B), punto P en la cima.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <span class="label">Magnitudes de cada campo (r = 0.10 m para ambas):</span>
+      $$E_1 = \frac{(9\times10^9)(2\times10^{-6})}{(0.10)^2} = \frac{18000}{0.01} = 1.80\times10^6\text{ N/C}$$
+      $$E_2 = \frac{(9\times10^9)(4\times10^{-6})}{(0.10)^2} = \frac{36000}{0.01} = 3.60\times10^6\text{ N/C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <span class="label">Direcciones (carga de prueba positiva en P):</span>
+      <ul style="font-size: 13px; margin: 6px 0 0 16px; line-height: 1.8;">
+        <li>\(E_1\) (de \(-2\;\mu\text{C}\)): hacia la carga negativa, apunta hacia abajo-izquierda a 60° bajo la horizontal (hacia A). Ángulo desde eje +x: 240°</li>
+        <li>\(E_2\) (de \(+4\;\mu\text{C}\)): se aleja de la carga positiva, apunta hacia arriba-izquierda a 60° sobre la horizontal (desde B). Ángulo desde eje +x: 120°</li>
+      </ul>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <span class="label">Componentes:</span>
+      $$E_{1x} = 1.80\times10^6\cos(240°) = -0.90\times10^6\text{ N/C}$$
+      $$E_{1y} = 1.80\times10^6\sin(240°) = -1.559\times10^6\text{ N/C}$$
+      $$E_{2x} = 3.60\times10^6\cos(120°) = -1.80\times10^6\text{ N/C}$$
+      $$E_{2y} = 3.60\times10^6\sin(120°) = +3.118\times10^6\text{ N/C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <span class="label">Suma de componentes:</span>
+      $$E_x = -0.90 - 1.80 = -2.70\times10^6\text{ N/C}$$
+      $$E_y = -1.559 + 3.118 = +1.559\times10^6\text{ N/C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <span class="label">Magnitud resultante:</span>
+      $$E = \sqrt{(-2.70)^2 + (1.559)^2} \times 10^6 = \sqrt{7.29 + 2.43}\times10^6 = \sqrt{9.72}\times10^6 \approx 3.12\times10^6\text{ N/C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <span class="label">Ángulo:</span>
+      $$\theta = \arctan\!\left(\frac{1.559}{-2.70}\right) \to \theta \approx 150°\text{ (2° cuadrante, hacia arriba-izquierda)}$$
+    </div>
+  </div>
+  <div class="result-box" style="background: var(--orange-600);">
+    <strong>E = 3.12 × 10⁶ N/C a 150° (coincide con la respuesta del libro)</strong>
+  </div>
+</div>
+
+<!-- Problema 3 extra -->
+<div class="challenge-section">
+  <div class="challenge-header">
+    <span class="star">★</span>
+    Problema Extra 3 — Partícula en equilibrio (tipo Prob. 24.31)
+  </div>
+  <p style="font-family: sans-serif; font-size: 14px; margin-bottom: 12px;">
+    Una partícula de 20 mg está en un campo descendente uniforme de 2000 N/C. ¿Cuántos electrones excedentes necesita para que las fuerzas eléctrica y gravitacional se equilibren?
+  </p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <span class="label">Condición de equilibrio:</span> \(F_E = F_g\), es decir, \(qE = mg\).
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <span class="label">Convierto unidades:</span> \(m = 20\text{ mg} = 20\times10^{-6}\text{ kg}\)
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <span class="label">Calculo la carga necesaria:</span>
+      $$q = \frac{mg}{E} = \frac{(20\times10^{-6})(9.8)}{2000} = \frac{196\times10^{-6}}{2000} = 9.8\times10^{-8}\text{ C}$$
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <span class="label">Número de electrones:</span> La fuerza eléctrica debe ir hacia arriba (contra la gravedad). El campo va hacia abajo. Para que la fuerza sobre la partícula sea hacia arriba, la carga debe ser negativa.
+      $$n = \frac{q}{e} = \frac{9.8\times10^{-8}}{1.6\times10^{-19}} = 6.125\times10^{11}\text{ electrones}$$
+    </div>
+  </div>
+  <div class="result-box" style="background: var(--orange-600);">
+    <strong>n = 6.125 × 10¹¹ electrones excedentes</strong>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══════════════ CHEATSHEET FINAL ══════════════ -->
+<div class="section-header">
+  <div class="icon">⑦</div>
+  <h2>Cheatsheet final — todo lo esencial</h2>
+</div>
+
+<div class="cheatsheet">
+  <h3>Fórmulas · Unidades · Condiciones de uso</h3>
+
+  <div class="cs-grid">
+    <div class="cs-card">
+      <div class="cs-name">Campo desde fuerza</div>
+      <div class="cs-eq">E = F / q</div>
+      <div class="cs-cond">Se conoce F y q. Dirección = dirección de F si q > 0; opuesta si q &lt; 0.</div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-name">Campo de carga puntual</div>
+      <div class="cs-eq">E = kQ / r²</div>
+      <div class="cs-cond">k = 9×10⁹ N·m²/C². Sale de Q (+) o entra en Q (−).</div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-name">Superposición</div>
+      <div class="cs-eq">E = √(Ex² + Ey²)</div>
+      <div class="cs-cond">Descomponer en componentes. Suma vectorial, nunca escalar si hay ángulo.</div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-name">Ley de Gauss</div>
+      <div class="cs-eq">ε₀ · Eₙ · A = q_enc</div>
+      <div class="cs-cond">Superficie gaussiana simétrica. ε₀ = 8.85×10⁻¹² C²/(N·m²).</div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-name">Placa infinita (1 placa)</div>
+      <div class="cs-eq">E = σ / (2ε₀)</div>
+      <div class="cs-cond">Independiente de r. σ = carga / área [C/m²].</div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-name">Condensador (2 placas)</div>
+      <div class="cs-eq">E = σ / ε₀</div>
+      <div class="cs-cond">Solo entre las placas. Fuera: E = 0 (los campos se cancelan).</div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-name">Densidad de carga</div>
+      <div class="cs-eq">σ = q / A</div>
+      <div class="cs-cond">Carga por unidad de área superficial [C/m²].</div>
+    </div>
+    <div class="cs-card">
+      <div class="cs-name">Fuerza desde campo</div>
+      <div class="cs-eq">F = q · E</div>
+      <div class="cs-cond">La fuerza sobre cualquier carga q en un campo E.</div>
+    </div>
+  </div>
+
+  <div class="cs-units">
+    <span>Unidades clave:</span> &nbsp;
+    Campo E → N/C &nbsp;|&nbsp;
+    Fuerza → N &nbsp;|&nbsp;
+    Carga → C &nbsp;|&nbsp;
+    Distancia → m &nbsp;|&nbsp;
+    Densidad de carga → C/m² &nbsp;|&nbsp;
+    k = 9×10⁹ N·m²/C² &nbsp;|&nbsp;
+    ε₀ = 8.85×10⁻¹² C²/(N·m²) &nbsp;|&nbsp;
+    1 μC = 10⁻⁶ C &nbsp;|&nbsp;
+    1 nC = 10⁻⁹ C
+    <br><br>
+    <span>Reglas de dirección:</span> &nbsp;
+    (+): campo sale radialmente &nbsp;|&nbsp;
+    (−): campo entra radialmente &nbsp;|&nbsp;
+    Condensador: de + a − entre las placas &nbsp;|&nbsp;
+    Conductor: E = 0 adentro, toda carga en la superficie
+>>>>>>> b969659c23d4eca670aee8b1b0ab60330b94d9f5
   </div>
 </div>
 
 </div><!-- /container -->
+<<<<<<< HEAD
+=======
+
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)'], ['$','$']], displayMath: [['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+
+>>>>>>> b969659c23d4eca670aee8b1b0ab60330b94d9f5
 </body>
 </html>
