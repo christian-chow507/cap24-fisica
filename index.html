@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 24 — Campo Eléctrico | Física Tippens</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<style>
+  :root {
+    --blue-dark: #185FA5;
+    --blue-mid: #2E7EC4;
+    --blue-light: #D6E8FA;
+    --blue-xlight: #EBF4FD;
+    --green-bg: #EAF3DE;
+    --green-border: #97C459;
+    --amber-bg: #FFF8E6;
+    --amber-border: #BA7517;
+    --amber-text: #7A4D0A;
+    --red-bg: #FFF0F0;
+    --red-border: #E05050;
+    --orange-bg: #FFF3E8;
+    --orange-border: #FFA040;
+    --navy: #042C53;
+    --gray-light: #F5F7FA;
+    --gray-mid: #CBD5E0;
+    --text-main: #1A202C;
+    --text-secondary: #4A5568;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; color: var(--text-main); background: #FAFBFC; line-height: 1.65; }
+  
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--navy); padding: 0 16px; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; min-height: 48px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  nav a { color: #A9C8F0; text-decoration: none; font-size: 12px; padding: 6px 10px; border-radius: 4px; transition: background 0.2s; white-space: nowrap; }
+  nav a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+  nav .nav-title { color: #fff; font-weight: 700; font-size: 13px; margin-right: 8px; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 12px; }
+
+  /* PORTADA */
+  .portada { background: linear-gradient(135deg, var(--navy) 0%, var(--blue-dark) 100%); color: white; padding: 48px 24px 40px; text-align: center; }
+  .portada .tag { background: rgba(255,255,255,0.15); display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+  .portada h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+  .portada .subtitle { font-size: 1.1rem; opacity: 0.85; margin-bottom: 20px; }
+  .portada-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
+  .portada-meta span { background: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 20px; font-size: 13px; }
+
+  /* CONTENEDOR */
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 16px 60px; }
+
+  /* LEE ESTO PRIMERO */
+  .lee-primero { background: var(--blue-xlight); border: 2px solid var(--blue-mid); border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; }
+  .lee-primero h2 { color: var(--blue-dark); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .lee-primero ul { padding-left: 20px; color: var(--text-main); }
+  .lee-primero ul li { margin-bottom: 4px; }
+
+  /* SECCIÓN HEADERS */
+  .sec-header { background: var(--blue-dark); color: white; padding: 12px 20px; border-radius: 8px 8px 0 0; display: flex; align-items: center; gap: 12px; }
+  .sec-header .num { background: rgba(255,255,255,0.2); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; flex-shrink: 0; }
+  .sec-header h2 { font-size: 1rem; font-weight: 700; }
+  .sec-body { border: 2px solid var(--blue-dark); border-top: none; border-radius: 0 0 8px 8px; padding: 20px; background: white; margin-bottom: 24px; }
+
+  /* TABLA DE DECISIÓN */
+  .decision-section { margin-bottom: 28px; }
+  .decision-section h2 { color: var(--blue-dark); font-size: 1.1rem; font-weight: 800; padding: 10px 16px; background: var(--blue-light); border-left: 5px solid var(--blue-dark); border-radius: 4px; margin-bottom: 12px; }
+  table.decision { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.decision thead th { background: var(--blue-dark); color: white; padding: 10px 14px; text-align: left; }
+  table.decision tbody tr:nth-child(odd) { background: var(--blue-xlight); }
+  table.decision tbody tr:nth-child(even) { background: white; }
+  table.decision td { padding: 9px 14px; border-bottom: 1px solid var(--gray-mid); }
+  table.decision .formula-cell { font-family: monospace; color: var(--blue-dark); font-weight: 600; }
+
+  /* BLOQUE DE FÓRMULA */
+  .formula-block { background: var(--green-bg); border: 2px solid var(--green-border); border-radius: 8px; padding: 16px 20px; margin: 14px 0; }
+  .formula-block .f-title { font-weight: 700; color: #3A6B1A; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .formula-block .f-when { color: var(--text-secondary); font-size: 13px; margin-bottom: 10px; font-style: italic; }
+  .formula-block .f-eq { font-size: 1.05rem; text-align: center; padding: 10px 0; }
+  .var-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+  .var-table th { background: #C8E6A0; color: #2D5A0E; padding: 6px 10px; text-align: left; }
+  .var-table td { padding: 6px 10px; border-bottom: 1px solid #CBE8A0; }
+  .var-table tr:last-child td { border-bottom: none; }
+
+  /* ANALOGÍA */
+  .analogy-box { border-left: 5px solid var(--amber-border); background: var(--amber-bg); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .analogy-box .a-label { font-weight: 700; color: var(--amber-text); font-size: 12px; text-transform: uppercase; margin-bottom: 4px; }
+  .analogy-box p { color: var(--amber-text); font-size: 14px; }
+
+  /* EJEMPLO RESUELTO */
+  .example-block { border-left: 5px solid var(--blue-mid); background: #F8FBFF; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 14px 0; }
+  .example-block .ex-title { font-weight: 700; color: var(--blue-dark); font-size: 13px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .example-block .ex-title .badge { background: var(--blue-dark); color: white; border-radius: 4px; padding: 2px 8px; font-size: 11px; }
+  .step { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+  .step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--blue-mid); color: white; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .step-content { flex: 1; }
+  .step-label { font-weight: 700; color: var(--blue-dark); font-size: 12px; text-transform: uppercase; margin-bottom: 2px; }
+  .answer-box { background: #E6F6EE; border: 2px solid #4CAF82; border-radius: 6px; padding: 10px 16px; margin-top: 8px; text-align: center; }
+  .answer-box .ans-label { color: #1A6640; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+  .answer-box .ans-val { color: #0D4A2C; font-weight: 800; font-size: 1rem; }
+
+  /* PARETO 20-80 */
+  .pareto-box { background: linear-gradient(135deg, #EBF4FF, #F5FAFF); border: 2px solid var(--blue-mid); border-radius: 10px; padding: 20px; margin-bottom: 28px; }
+  .pareto-box h2 { color: var(--blue-dark); font-size: 1rem; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .pareto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .pareto-grid { grid-template-columns: 1fr; } }
+  .pareto-card { background: white; border-radius: 8px; padding: 14px; border: 1px solid var(--gray-mid); }
+  .pareto-card h3 { font-size: 12px; text-transform: uppercase; color: var(--blue-dark); font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px; }
+  .pareto-card ul { padding-left: 18px; font-size: 13px; color: var(--text-secondary); }
+  .pareto-card ul li { margin-bottom: 4px; }
+
+  /* FICHAS DE FÓRMULAS */
+  .formula-ficha { border: 2px solid var(--green-border); border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
+  .ficha-header { background: var(--green-border); color: white; padding: 10px 16px; font-weight: 700; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+  .ficha-body { padding: 16px; background: var(--green-bg); }
+  .ficha-row { display: flex; gap: 8px; margin-bottom: 6px; font-size: 13px; }
+  .ficha-row .label { font-weight: 700; color: #3A6B1A; min-width: 110px; }
+
+  /* ÍNDICE */
+  .index-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 8px; }
+  .index-table th { background: var(--blue-dark); color: white; padding: 8px 12px; text-align: left; }
+  .index-table td { padding: 8px 12px; border-bottom: 1px solid var(--gray-mid); }
+  .index-table tr:nth-child(odd) td { background: var(--blue-xlight); }
+  .badge-maestro { background: #0D3B6E; color: white; padding: 2px 7px; border-radius: 3px; font-size: 11px; font-weight: 700; }
+  .badge-probable { background: var(--blue-mid); color: white; padding: 2px 7px; border-radius: 3px; font-size: 11px; font-weight: 700; }
+  .badge-refuerzo { background: var(--gray-mid); color: #333; padding: 2px 7px; border-radius: 3px; font-size: 11px; }
+  .stars { color: #F5A623; }
+
+  /* TIPS */
+  .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  @media(max-width:600px){ .tips-grid { grid-template-columns: 1fr; } }
+  .tip-card { background: var(--amber-bg); border-left: 4px solid var(--amber-border); border-radius: 0 6px 6px 0; padding: 12px 14px; }
+  .tip-card .tip-num { font-weight: 800; color: var(--amber-text); font-size: 12px; text-transform: uppercase; margin-bottom: 4px; }
+  .tip-card p { font-size: 13px; color: var(--amber-text); }
+
+  /* PROBLEMAS */
+  .problem-card { border-radius: 10px; margin-bottom: 28px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  .prob-header { padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .prob-header .prob-id { font-weight: 800; font-size: 14px; }
+  .prob-header .prob-badges { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .prob-body { padding: 20px; background: white; }
+  
+  /* Colores por dificultad */
+  .lvl-basic .prob-header { background: #EBF4FD; border-left: 6px solid #7DBCE8; }
+  .lvl-inter .prob-header { background: var(--blue-light); border-left: 6px solid var(--blue-mid); }
+  .lvl-adv .prob-header { background: #C8DEFA; border-left: 6px solid var(--blue-dark); }
+  .lvl-maestro .prob-header { background: var(--blue-dark); color: white; border-left: 6px solid #0A2E5A; }
+  .lvl-maestro .prob-header .prob-id { color: white; }
+
+  .enunciado { background: var(--gray-light); border-radius: 6px; padding: 12px 16px; margin-bottom: 14px; font-size: 14px; border-left: 3px solid var(--gray-mid); }
+  .enunciado .label { font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 6px; }
+
+  .antes-resolver { background: #F0F7FF; border: 1px dashed var(--blue-mid); border-radius: 6px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; }
+  .antes-resolver .label { font-size: 11px; font-weight: 700; color: var(--blue-dark); text-transform: uppercase; margin-bottom: 6px; }
+  .antes-resolver ul { padding-left: 18px; }
+  .antes-resolver li { margin-bottom: 3px; }
+
+  .solucion-label { font-weight: 700; color: var(--blue-dark); font-size: 12px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 2px solid var(--blue-light); padding-bottom: 4px; }
+  .solucion-block { border-left: 5px solid var(--blue-mid); padding-left: 16px; margin-bottom: 14px; }
+
+  .lesson-box { background: var(--amber-bg); border-left: 5px solid var(--amber-border); border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0; font-size: 13px; color: var(--amber-text); }
+  .lesson-box .l-label { font-weight: 700; font-size: 12px; margin-bottom: 3px; }
+
+  .error-box { background: var(--red-bg); border-left: 5px solid var(--red-border); border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0; font-size: 13px; color: #8B2020; }
+  .error-box .e-label { font-weight: 700; font-size: 12px; margin-bottom: 3px; }
+  .error-box ul { padding-left: 18px; }
+
+  .alt-box { background: #F5F5F5; border-left: 5px solid var(--gray-mid); border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0; font-size: 13px; color: #555; }
+  .alt-box .a-label { font-weight: 700; font-size: 12px; margin-bottom: 3px; }
+
+  .domina-box { background: #EDF2FF; border: 1px solid #8AABF0; border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-size: 13px; color: #2D3A8C; }
+  .domina-box .d-label { font-weight: 700; font-size: 12px; margin-bottom: 3px; }
+
+  /* EXTRA */
+  .extra-card { background: var(--orange-bg); border: 2px solid var(--orange-border); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+  .extra-card .extra-header { background: var(--orange-border); color: white; padding: 10px 18px; font-weight: 700; font-size: 13px; }
+  .extra-card .extra-body { padding: 18px; }
+
+  /* ERRORES COMUNES - TABLA */
+  .err-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px; }
+  .err-table th { background: #C0392B; color: white; padding: 8px 12px; text-align: left; }
+  .err-table td { padding: 9px 12px; border-bottom: 1px solid #FFBCBC; vertical-align: top; }
+  .err-table tr:nth-child(odd) td { background: var(--red-bg); }
+  .err-table tr:nth-child(even) td { background: #FFF8F8; }
+
+  /* CHEATSHEET */
+  .cheatsheet { background: var(--navy); color: #E8F1FA; border-radius: 12px; padding: 24px; margin-top: 8px; }
+  .cheatsheet h2 { color: #FFD700; font-size: 1.1rem; text-align: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px; }
+  .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .cs-grid { grid-template-columns: 1fr; } }
+  .cs-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 14px; }
+  .cs-card h3 { color: #90CDF4; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .cs-card ul { padding-left: 16px; font-size: 13px; }
+  .cs-card ul li { margin-bottom: 5px; color: #CBD5E0; }
+  .cs-card ul li strong { color: #E2E8F0; }
+  .cs-formula { background: rgba(255,255,255,0.1); border-radius: 4px; padding: 8px 10px; margin-bottom: 6px; font-size: 13px; }
+  .cs-formula .cf-eq { color: #9AE6B4; font-weight: 600; }
+  .cs-formula .cf-when { color: #A0AEC0; font-size: 12px; margin-top: 2px; }
+
+  .decision-grid { background: rgba(255,255,255,0.05); border-radius: 6px; overflow: hidden; margin-top: 10px; }
+  .decision-grid table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .decision-grid th { background: rgba(255,255,255,0.15); color: #90CDF4; padding: 7px 10px; text-align: left; }
+  .decision-grid td { padding: 7px 10px; border-bottom: 1px solid rgba(255,255,255,0.08); color: #CBD5E0; }
+  .decision-grid tr:last-child td { border-bottom: none; }
+
+  /* MISC */
+  h3.sub-title { color: var(--blue-dark); font-size: 14px; font-weight: 700; margin: 16px 0 8px; }
+  .note { font-size: 12px; color: var(--text-secondary); font-style: italic; margin-top: 6px; }
+  hr.section-sep { border: none; border-top: 2px dashed var(--gray-mid); margin: 28px 0; }
+  .target-emoji { font-size: 16px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-title">Cap. 24 · Campo Eléctrico</span>
+  <a href="#decision">📊 Tabla</a>
+  <a href="#pareto">⚡ 20/80</a>
+  <a href="#fichas">🔧 Fórmulas</a>
+  <a href="#indice">📋 Índice</a>
+  <a href="#tips">💡 Tips</a>
+  <a href="#problemas">📝 Problemas</a>
+  <a href="#extra">★ Extra</a>
+  <a href="#errores">⚠️ Errores</a>
+  <a href="#cheatsheet">🗂️ Cheatsheet</a>
+</nav>
+
+<!-- PORTADA -->
+<div class="portada">
+  <div class="tag">Física · Tippens · 12vo Grado</div>
+  <h1>Capítulo 24<br>Campo Eléctrico</h1>
+  <div class="subtitle">Ley de Coulomb aplicada al espacio · Ley de Gauss · Líneas de campo</div>
+  <div class="portada-meta">
+    <span>🟡 Modo: 1 semana</span>
+    <span>📚 Materia: Física</span>
+    <span>🎓 12vo Grado</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- LEE ESTO PRIMERO -->
+<div class="lee-primero">
+  <h2>📌 Lee esto primero</h2>
+  <ul>
+    <li>Este capítulo trata sobre <strong>cómo una carga eléctrica crea una fuerza en el espacio a su alrededor</strong>, sin necesidad de contacto directo.</li>
+    <li>En examen aparecerán: calcular <em>E</em> de una sola carga, sumar campos vectorialmente, aplicar la Ley de Gauss a placas y esferas.</li>
+    <li>El <strong>20% clave:</strong> domina \(E = kQ/r^2\), la suma vectorial de campos, y \(E = \sigma/\varepsilon_0\) para condensadores.</li>
+    <li>Estudia en este orden: Tabla de decisión → Fichas de fórmulas → Problemas MAESTRO → Problemas PROBABLES → Cheatsheet.</li>
+  </ul>
+</div>
+
+<!-- TABLA DE DECISIÓN -->
+<div id="decision" class="decision-section">
+  <h2>📊 TABLA DE DECISIÓN — "Si el problema te da..."</h2>
+  <table class="decision">
+    <thead>
+      <tr>
+        <th>Si te dan…</th>
+        <th>Quieres hallar…</th>
+        <th>Usa esta fórmula</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fuerza F y carga q</td>
+        <td>Intensidad del campo E</td>
+        <td class="formula-cell">\( E = F/q \)</td>
+      </tr>
+      <tr>
+        <td>Carga Q y distancia r</td>
+        <td>E en ese punto</td>
+        <td class="formula-cell">\( E = kQ/r^2 \)</td>
+      </tr>
+      <tr>
+        <td>Varias cargas y un punto</td>
+        <td>Campo resultante en ese punto</td>
+        <td class="formula-cell">\( \vec{E} = \vec{E}_1 + \vec{E}_2 + \cdots \) (vectorial)</td>
+      </tr>
+      <tr>
+        <td>E y carga q colocada en ese punto</td>
+        <td>Fuerza sobre esa carga</td>
+        <td class="formula-cell">\( F = qE \)</td>
+      </tr>
+      <tr>
+        <td>Densidad de carga σ (placa infinita)</td>
+        <td>Campo fuera de la placa</td>
+        <td class="formula-cell">\( E = \sigma / 2\varepsilon_0 \)</td>
+      </tr>
+      <tr>
+        <td>Densidad de carga σ (condensador/dos placas)</td>
+        <td>Campo entre las placas</td>
+        <td class="formula-cell">\( E = \sigma / \varepsilon_0 \)</td>
+      </tr>
+      <tr>
+        <td>Carga total q encerrada por una superficie</td>
+        <td>Campo con Ley de Gauss</td>
+        <td class="formula-cell">\( \sum \varepsilon_0 E_n A = \sum q \)</td>
+      </tr>
+      <tr>
+        <td>Punto interior a un conductor cargado</td>
+        <td>Campo eléctrico ahí</td>
+        <td class="formula-cell">\( E = 0 \) (siempre cero dentro)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PARETO 20/80 -->
+<div id="pareto" class="pareto-box">
+  <h2>⚡ El 20% que genera el 80% del dominio</h2>
+  <div class="pareto-grid">
+    <div class="pareto-card">
+      <h3>📐 Fórmulas clave (el 20%)</h3>
+      <ul>
+        <li><strong>\(E = F/q\)</strong> — definición del campo</li>
+        <li><strong>\(E = kQ/r^2\)</strong> — campo de carga puntual</li>
+        <li><strong>Suma vectorial de campos</strong> — varias cargas</li>
+        <li><strong>\(E = \sigma/\varepsilon_0\)</strong> — condensador</li>
+        <li><strong>Ley de Gauss</strong> — \(\sum \varepsilon_0 E_n A = \sum q\)</li>
+      </ul>
+    </div>
+    <div class="pareto-card">
+      <h3>💡 Conceptos clave (el 20%)</h3>
+      <ul>
+        <li><strong>Campo = propiedad del espacio</strong>, existe sin necesidad de colocar una carga allí</li>
+        <li><strong>Dirección del campo</strong> = hacia donde se movería una carga positiva de prueba</li>
+        <li><strong>Suma vectorial</strong>: cada carga aporta su campo por separado</li>
+        <li><strong>Carga sobre superficie</strong>: dentro de un conductor, E = 0</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FICHAS DE FÓRMULAS -->
+<div id="fichas">
+  <div class="sec-header"><div class="num">F</div><h2>Fichas de Fórmulas Clave</h2></div>
+  <div class="sec-body">
+
+    <!-- Ficha 1 -->
+    <div class="formula-ficha">
+      <div class="ficha-header"><span>🔧 FÓRMULA 1: Definición del Campo Eléctrico</span><span>Ecuación 24.4</span></div>
+      <div class="ficha-body">
+        <div class="f-eq">\[ E = \dfrac{F}{q} \]</div>
+        <table class="var-table">
+          <tr><th>Símbolo</th><th>Significado</th><th>Unidad SI</th></tr>
+          <tr><td><strong>E</strong></td><td>Intensidad del campo eléctrico</td><td>N/C (newton/coulomb)</td></tr>
+          <tr><td><strong>F</strong></td><td>Fuerza sobre la carga de prueba</td><td>N (newton)</td></tr>
+          <tr><td><strong>q</strong></td><td>Carga de prueba (positiva)</td><td>C (coulomb)</td></tr>
+        </table>
+        <div class="ficha-row" style="margin-top:10px"><span class="label">Cuándo usarla:</span><span>Cuando te dan la fuerza sobre una carga y piden el campo, o viceversa.</span></div>
+        <div class="ficha-row"><span class="label">Error común:</span><span>Confundir el signo de la carga con la dirección del campo. <em>Usa el valor absoluto para la magnitud.</em></span></div>
+        <div class="ficha-row"><span class="label">Problema clave:</span><span>Problema #1 y #3</span></div>
+      </div>
+    </div>
+
+    <!-- Ficha 2 -->
+    <div class="formula-ficha">
+      <div class="ficha-header"><span>🔧 FÓRMULA 2: Campo de una Carga Puntual</span><span>Ecuación 24.7</span></div>
+      <div class="ficha-body">
+        <div class="f-eq">\[ E = \dfrac{kQ}{r^2} \qquad k = 9 \times 10^9 \; \text{N·m}^2/\text{C}^2 \]</div>
+        <table class="var-table">
+          <tr><th>Símbolo</th><th>Significado</th><th>Unidad SI</th></tr>
+          <tr><td><strong>E</strong></td><td>Intensidad del campo</td><td>N/C</td></tr>
+          <tr><td><strong>k</strong></td><td>Constante de Coulomb</td><td>9×10⁹ N·m²/C²</td></tr>
+          <tr><td><strong>Q</strong></td><td>Carga que crea el campo</td><td>C</td></tr>
+          <tr><td><strong>r</strong></td><td>Distancia al punto de interés</td><td>m (metros)</td></tr>
+        </table>
+        <div class="ficha-row" style="margin-top:10px"><span class="label">Cuándo usarla:</span><span>Cuando tienes una sola carga y quieres saber el campo a cierta distancia.</span></div>
+        <div class="ficha-row"><span class="label">⚠️ Errores comunes:</span><span>(1) Olvidar convertir mm → m o μC → C. (2) Usar el signo negativo de Q en el cálculo de magnitud.</span></div>
+        <div class="ficha-row"><span class="label">Problema clave:</span><span>Problemas #2, #4, #5</span></div>
+      </div>
+    </div>
+
+    <!-- Ficha 3 -->
+    <div class="formula-ficha">
+      <div class="ficha-header"><span>🔧 FÓRMULA 3: Campo Resultante (Suma Vectorial)</span><span>Ecuación 24.8</span></div>
+      <div class="ficha-body">
+        <div class="f-eq">\[ \vec{E} = \vec{E}_1 + \vec{E}_2 + \vec{E}_3 + \cdots \]</div>
+        <div class="ficha-row" style="margin-top:6px"><span class="label">Cuándo usarla:</span><span>Cuando hay <strong>2 o más cargas</strong> y piden el campo en un punto.</span></div>
+        <div class="ficha-row"><span class="label">Procedimiento:</span><span>Calcular |E| de cada carga por separado con \(kQ/r^2\), determinar dirección de cada una, sumar componentes x e y.</span></div>
+        <div class="ficha-row"><span class="label">⚠️ Errores comunes:</span><span>(1) Sumar magnitudes sin analizar direcciones. (2) No descomponer cuando hay ángulos.</span></div>
+        <div class="ficha-row"><span class="label">Problema clave:</span><span>Problemas #6, #7 (MAESTROS)</span></div>
+      </div>
+    </div>
+
+    <!-- Ficha 4 -->
+    <div class="formula-ficha">
+      <div class="ficha-header"><span>🔧 FÓRMULA 4: Campo — Condensador de Placas Paralelas</span><span>Ecuación 24.18</span></div>
+      <div class="ficha-body">
+        <div class="f-eq">\[ E = \dfrac{\sigma}{\varepsilon_0} \qquad \varepsilon_0 = 8.85 \times 10^{-12} \; \text{C}^2/(\text{N·m}^2) \]</div>
+        <table class="var-table">
+          <tr><th>Símbolo</th><th>Significado</th><th>Unidad SI</th></tr>
+          <tr><td><strong>E</strong></td><td>Campo entre las placas</td><td>N/C</td></tr>
+          <tr><td><strong>σ</strong></td><td>Densidad de carga superficial</td><td>C/m²</td></tr>
+          <tr><td><strong>ε₀</strong></td><td>Permitividad del vacío</td><td>8.85×10⁻¹² C²/(N·m²)</td></tr>
+        </table>
+        <div class="ficha-row" style="margin-top:10px"><span class="label">Para una placa:</span><span>\( E = \sigma / 2\varepsilon_0 \) (afuera de placa simple)</span></div>
+        <div class="ficha-row"><span class="label">Para condensador:</span><span>\( E = \sigma / \varepsilon_0 \) (entre dos placas opuestas)</span></div>
+        <div class="ficha-row"><span class="label">⚠️ Error clásico:</span><span>Usar la fórmula de placa simple cuando el problema habla de condensador (dos placas).</span></div>
+        <div class="ficha-row"><span class="label">Problema clave:</span><span>Problema #9</span></div>
+      </div>
+    </div>
+
+    <!-- Ficha 5 -->
+    <div class="formula-ficha">
+      <div class="ficha-header"><span>🔧 FÓRMULA 5: Ley de Gauss</span><span>Ecuación 24.15</span></div>
+      <div class="ficha-body">
+        <div class="f-eq">\[ \sum \varepsilon_0 E_n A = \sum q \]</div>
+        <div class="ficha-row" style="margin-top:6px"><span class="label">En palabras:</span><span>El total de líneas eléctricas que salen de una superficie cerrada = carga total encerrada.</span></div>
+        <div class="ficha-row"><span class="label">Cuándo usarla:</span><span>Geometrías simétricas: esferas, placas, cilindros. Para demostrar que E = 0 dentro de conductores.</span></div>
+        <div class="ficha-row"><span class="label">Truco clave:</span><span>Construye la superficie gaussiana donde E sea constante → simplifica el álgebra enormemente.</span></div>
+        <div class="ficha-row"><span class="label">Problema clave:</span><span>Problema #10, #11</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-sep">
+
+<!-- ÍNDICE -->
+<div id="indice">
+  <div class="sec-header"><div class="num">📋</div><h2>Índice de Problemas</h2></div>
+  <div class="sec-body">
+    <table class="index-table">
+      <thead>
+        <tr><th>#</th><th>Título</th><th>Dificultad</th><th>Clasificación</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Campo a partir de fuerza y carga</td><td><span class="stars">⭐</span></td><td><span class="badge-refuerzo">REFUERZO</span></td></tr>
+        <tr><td>2</td><td>Fuerza sobre un electrón en campo conocido</td><td><span class="stars">⭐</span></td><td><span class="badge-refuerzo">REFUERZO</span></td></tr>
+        <tr><td>3</td><td>Campo de carga negativa (dirección)</td><td><span class="stars">⭐</span></td><td><span class="badge-refuerzo">REFUERZO</span></td></tr>
+        <tr><td>4</td><td>Campo en punto medio entre dos cargas (misma dirección)</td><td><span class="stars">⭐⭐</span></td><td><span class="badge-probable">🎯 PROBABLE</span></td></tr>
+        <tr><td>5</td><td>Campo en punto medio — cargas de distinto signo</td><td><span class="stars">⭐⭐</span></td><td><span class="badge-probable">🎯 PROBABLE</span></td></tr>
+        <tr><td>6</td><td>Campo resultante vectorial — punto alineado (Ej. 24.4a)</td><td><span class="stars">⭐⭐</span></td><td><span class="badge-probable">🎯 PROBABLE</span></td></tr>
+        <tr><td>7</td><td>Campo resultante vectorial — punto con ángulo (Ej. 24.4b)</td><td><span class="stars">⭐⭐⭐</span></td><td><span class="badge-maestro">🎯 MAESTRO</span></td></tr>
+        <tr><td>8</td><td>Campo en triángulo equilátero (dos cargas distintas)</td><td><span class="stars">⭐⭐⭐</span></td><td><span class="badge-maestro">🎯 MAESTRO</span></td></tr>
+        <tr><td>9</td><td>Condensador — campo entre placas con Ley de Gauss</td><td><span class="stars">⭐⭐</span></td><td><span class="badge-probable">🎯 PROBABLE</span></td></tr>
+        <tr><td>10</td><td>Ley de Gauss — esfera metálica hueca</td><td><span class="stars">⭐⭐</span></td><td><span class="badge-probable">🎯 PROBABLE</span></td></tr>
+        <tr><td>11</td><td>Equilibrio gravitacional-eléctrico sobre partícula</td><td><span class="stars">⭐⭐⭐</span></td><td><span class="badge-maestro">🎯 MAESTRO</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="section-sep">
+
+<!-- TIPS -->
+<div id="tips">
+  <div class="sec-header"><div class="num">💡</div><h2>Tips y Estrategias Generales</h2></div>
+  <div class="sec-body">
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">💡 Tip 1 — Dirección del campo</div>
+        <p>El campo apunta <strong>hacia donde se movería una carga +</strong> imaginaria. Si la carga que lo crea es +, el campo sale radialmente. Si es −, el campo entra radialmente.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">💡 Tip 2 — Magnitud vs. dirección</div>
+        <p>Para calcular la <em>magnitud</em> de E, siempre usa el <strong>valor absoluto de Q</strong>. El signo solo determina la dirección, no afecta el número.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">💡 Tip 3 — Conversión de unidades</div>
+        <p>Siempre convierte antes de sustituir: <strong>1 μC = 10⁻⁶ C</strong>, <strong>1 nC = 10⁻⁹ C</strong>, <strong>1 mm = 0.001 m</strong>, <strong>1 cm = 0.01 m</strong>.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">💡 Tip 4 — Suma vectorial</div>
+        <p>Con ángulos: descompone cada E en componentes x e y, suma por separado, luego usa Pitágoras: \(E = \sqrt{E_x^2 + E_y^2}\) y atan para la dirección.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">💡 Tip 5 — Ley de Gauss simplificada</div>
+        <p>Solo aplica Gauss cuando hay simetría (esfera, placa, cilindro). Construye la superficie donde E sea constante y normal a la superficie → el álgebra se simplifica al mínimo.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">💡 Tip 6 — Verificación de resultados</div>
+        <p>Si obtienes E muy pequeño entre dos cargas grandes y cercanas, algo está mal. Revisa unidades. Un campo de 10⁴ a 10⁸ N/C es típico en estos problemas.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-sep">
+
+<!-- PROBLEMAS -->
+<div id="problemas">
+  <div class="sec-header"><div class="num">📝</div><h2>Problemas Resueltos</h2></div>
+  <div class="sec-body" style="padding-bottom:4px">
+    <p style="font-size:13px;color:var(--text-secondary);margin-bottom:0">Ordenados de menor a mayor dificultad. Los problemas <span class="badge-maestro">🎯 MAESTRO</span> tienen explicación completa.</p>
+  </div>
+</div>
+
+<!-- PROBLEMA 1 -->
+<div class="problem-card lvl-basic">
+  <div class="prob-header">
+    <span class="prob-id">Problema #1</span>
+    <div class="prob-badges"><span class="stars">⭐</span><span class="badge-refuerzo">REFUERZO</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      Una carga de +2 μC colocada en un punto P experimenta una fuerza descendente de 8×10⁻⁴ N. ¿Cuál es la intensidad del campo eléctrico en ese punto?
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Datos y fórmula</div>\( F = 8\times10^{-4}\text{ N} \), \( q = 2\times10^{-6}\text{ C} \), usar \( E = F/q \)</div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Sustitución</div>\( E = \dfrac{8\times10^{-4}\text{ N}}{2\times10^{-6}\text{ C}} = 400 \text{ N/C} \)</div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E = 400 N/C, hacia abajo</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Concepto</div>El campo tiene la misma dirección que la fuerza sobre una carga positiva. Si la carga fuera negativa, el campo apuntaría en sentido contrario a la fuerza.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 2 -->
+<div class="problem-card lvl-basic">
+  <div class="prob-header">
+    <span class="prob-id">Problema #2</span>
+    <div class="prob-badges"><span class="stars">⭐</span><span class="badge-refuerzo">REFUERZO</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      ¿Cuáles son la magnitud y la dirección de la fuerza que actuaría sobre un electrón (q = −1.6×10⁻¹⁹ C) colocado en el punto P del problema 1, donde E = 400 N/C hacia abajo?
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Fórmula</div>De \(E = F/q\) se despeja: \( F = qE \)</div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Magnitud</div>\( |F| = (1.6\times10^{-19}\text{ C})(400\text{ N/C}) = 6.40\times10^{-17}\text{ N} \)</div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Dirección</div>El electrón tiene carga negativa → la fuerza es opuesta al campo. Campo va hacia abajo → fuerza sobre el electrón es <strong>hacia arriba</strong>.</div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">F = 6.40×10⁻¹⁷ N, hacia arriba</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Concepto</div>Las cargas negativas sienten la fuerza en dirección opuesta al campo. Las positivas la sienten en la misma dirección.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 3 -->
+<div class="problem-card lvl-basic">
+  <div class="prob-header">
+    <span class="prob-id">Problema #3</span>
+    <div class="prob-badges"><span class="stars">⭐</span><span class="badge-refuerzo">REFUERZO</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      ¿Cuál es la intensidad del campo eléctrico a 2 m de una carga de −12 μC?
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Datos</div>\( Q = 12\times10^{-6}\text{ C} \), \( r = 2\text{ m} \), \( k = 9\times10^9\text{ N·m}^2/\text{C}^2 \)</div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Cálculo</div>\( E = \dfrac{(9\times10^9)(12\times10^{-6})}{(2)^2} = \dfrac{108000}{4} = 2.70\times10^4\text{ N/C} \)</div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Dirección</div>Carga negativa → campo apunta <strong>hacia</strong> Q (radialmente hacia dentro).</div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E = 2.70×10⁴ N/C, hacia la carga</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Concepto</div>Para calcular la magnitud usa siempre el valor absoluto de Q. La dirección se determina por el signo: + sale, − entra.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 4 -->
+<div class="problem-card lvl-inter">
+  <div class="prob-header">
+    <span class="prob-id">Problema #4</span>
+    <div class="prob-badges"><span class="stars">⭐⭐</span><span class="badge-probable">🎯 PROBABLE</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      Calcule la intensidad del campo eléctrico en el punto medio de una recta de 40 mm entre una carga de +6 nC y otra de −9 nC. (Problema 24.26 del libro)
+    </div>
+    <div class="antes-resolver">
+      <div class="label">🧠 Antes de resolver</div>
+      <ul>
+        <li><strong>Datos:</strong> q₁ = +6 nC = 6×10⁻⁹ C, q₂ = −9 nC = 9×10⁻⁹ C, distancia total = 40 mm → r = 20 mm = 0.02 m (punto medio)</li>
+        <li><strong>Busco:</strong> Campo resultante E en el punto medio</li>
+        <li><strong>Fórmula:</strong> \(E = kQ/r^2\) para cada carga, luego suma vectorial</li>
+        <li><strong>Clave:</strong> Analizar dirección de cada campo desde el punto medio</li>
+      </ul>
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Campo de q₁ (+6 nC) en el punto medio</div>
+        \[ E_1 = \dfrac{(9\times10^9)(6\times10^{-9})}{(0.02)^2} = \dfrac{54}{4\times10^{-4}} = 1.35\times10^5 \text{ N/C} \]
+        Dirección: carga positiva → campo se aleja → apunta <strong>hacia la derecha</strong> (hacia q₂).
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Campo de q₂ (−9 nC) en el punto medio</div>
+        \[ E_2 = \dfrac{(9\times10^9)(9\times10^{-9})}{(0.02)^2} = \dfrac{81}{4\times10^{-4}} = 2.025\times10^5 \text{ N/C} \]
+        Dirección: carga negativa → campo apunta hacia ella → apunta <strong>hacia la derecha</strong> (hacia q₂).
+      </div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Suma (misma dirección → suma directa)</div>
+        \[ E = E_1 + E_2 = 1.35\times10^5 + 2.025\times10^5 = 3.375\times10^5 \text{ N/C} \]
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E ≈ 3.38×10⁵ N/C, hacia la carga negativa</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Concepto</div>Cuando ambos campos apuntan en la misma dirección (frecuente con cargas de signos opuestos), simplemente se suman. Lo crítico es analizar la dirección antes de calcular.</div>
+    <div class="error-box"><div class="e-label">⚠️ Error Típico</div>Asumir que los campos se restan porque las cargas tienen signos diferentes. Lo que importa es la dirección del campo en el punto de interés, no el signo de la carga.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 5 -->
+<div class="problem-card lvl-inter">
+  <div class="prob-header">
+    <span class="prob-id">Problema #5</span>
+    <div class="prob-badges"><span class="stars">⭐⭐</span><span class="badge-probable">🎯 PROBABLE</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      Una carga de 8 nC se ubica 80 mm a la derecha de una carga de +4 nC. Determina la intensidad del campo en el punto medio de la recta que une las dos cargas. (Problema 24.11)
+    </div>
+    <div class="antes-resolver">
+      <div class="label">🧠 Antes de resolver</div>
+      <ul>
+        <li><strong>Datos:</strong> q₁ = +4 nC, q₂ = +8 nC, separación = 80 mm → r cada uno = 40 mm = 0.04 m</li>
+        <li><strong>Clave de dirección:</strong> Ambas cargas positivas → los campos en el punto medio apuntan en sentidos opuestos (q₁ empuja hacia la derecha, q₂ empuja hacia la izquierda)</li>
+      </ul>
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">E₁ (de +4 nC), apunta hacia la derecha</div>
+        \[ E_1 = \dfrac{(9\times10^9)(4\times10^{-9})}{(0.04)^2} = \dfrac{36}{1.6\times10^{-3}} = 2.25\times10^4 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">E₂ (de +8 nC), apunta hacia la izquierda</div>
+        \[ E_2 = \dfrac{(9\times10^9)(8\times10^{-9})}{(0.04)^2} = \dfrac{72}{1.6\times10^{-3}} = 4.50\times10^4 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Suma vectorial (direcciones opuestas → resta)</div>
+        \[ E = E_2 - E_1 = 4.50\times10^4 - 2.25\times10^4 = 2.25\times10^4 \text{ N/C} \]
+        Dirección: hacia la izquierda (hacia q₁, el mayor efecto es de q₂)
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E = 2.25×10⁴ N/C, hacia la izquierda</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Concepto</div>Dos cargas del mismo signo generan campos que se oponen en el punto medio. El campo resultante apunta hacia la carga de menor magnitud.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 6 -->
+<div class="problem-card lvl-inter">
+  <div class="prob-header">
+    <span class="prob-id">Problema #6</span>
+    <div class="prob-badges"><span class="stars">⭐⭐</span><span class="badge-probable">🎯 PROBABLE</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      Dos cargas puntuales q₁ = −6 nC y q₂ = +8 nC están separadas 12 cm. El punto A está 4 cm a la izquierda de q₁ y 8 cm a la izquierda de q₂. Determina el campo eléctrico resultante en A. (Ejemplo 24.4a del libro)
+    </div>
+    <div class="antes-resolver">
+      <div class="label">🧠 Antes de resolver</div>
+      <ul>
+        <li><strong>r₁</strong> = 4 cm = 0.04 m (de q₁ a A)</li>
+        <li><strong>r₂</strong> = 8 cm = 0.08 m (de q₂ a A)</li>
+        <li><strong>Dirección de E₁:</strong> q₁ es negativa → campo en A apunta hacia q₁ → hacia la derecha</li>
+        <li><strong>Dirección de E₂:</strong> q₂ es positiva → campo en A se aleja de q₂ → también hacia la izquierda (A está a la izquierda de q₂)</li>
+      </ul>
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">E₁ por q₁ (−6 nC), hacia la derecha</div>
+        \[ E_1 = \dfrac{(9\times10^9)(6\times10^{-9})}{(0.04)^2} = \dfrac{54}{1.6\times10^{-3}} = 3.38\times10^4 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">E₂ por q₂ (+8 nC), hacia la derecha también</div>
+        <p class="note">A está a la izquierda de q₂ y q₂ es positiva → el campo se aleja → también apunta hacia la izquierda desde q₂, o sea hacia la derecha del punto A — en el mismo sentido que E₁.</p>
+        <p class="note">Espera: punto A está a la izquierda de ambas cargas. q₂ positiva empuja hacia afuera (hacia la izquierda). Entonces E₂ apunta hacia la izquierda en A.</p>
+        \[ E_2 = \dfrac{(9\times10^9)(8\times10^{-9})}{(0.08)^2} = \dfrac{72}{6.4\times10^{-3}} = 1.125\times10^4 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Análisis de dirección final y suma</div>
+        E₁ (por carga −): apunta hacia q₁ = hacia la derecha.<br>
+        E₂ (por carga +): A está a la izquierda de q₂, carga + aleja → hacia la izquierda.<br>
+        Ambos campos van a la <strong>izquierda</strong> (hacia el punto A desde cada lado), sumándose:
+        \[ E = E_1 + E_2 = 3.38\times10^4 + 1.12\times10^4 = 4.50\times10^4 \text{ N/C} \]
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E = 4.50×10⁴ N/C, hacia la izquierda</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Concepto</div>El análisis de dirección es el paso más importante. Imagina una carga + de prueba en el punto: ¿hacia dónde la jalaría cada carga? Eso es la dirección del campo de cada una.</div>
+    <div class="error-box"><div class="e-label">⚠️ Error Típico</div>No pensar en la dirección antes de sumar. Si lo haces algebraicamente sin establecer un sistema de referencia (+/− para derecha/izquierda), te confundes inevitablemente.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 7 — MAESTRO -->
+<div class="problem-card lvl-maestro">
+  <div class="prob-header">
+    <span class="prob-id">Problema #7 🎯 MAESTRO</span>
+    <div class="prob-badges"><span class="stars" style="color:#FFD700">⭐⭐⭐</span><span class="badge-maestro">MAESTRO</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      Dos cargas: q₁ = −6 nC y q₂ = +8 nC separadas 12 cm. El punto B está ubicado 9 cm directamente abajo de q₁ y forma un triángulo con q₁ y q₂. La distancia de q₂ al punto B es 15 cm y el ángulo es 37° al N del O. Determina el campo eléctrico resultante en B. (Ejemplo 24.4b del libro)
+    </div>
+    <div class="antes-resolver">
+      <div class="label">🧠 Antes de resolver — Identifica</div>
+      <ul>
+        <li><strong>Datos:</strong> r₁ = 9 cm = 0.09 m, r₂ = 15 cm = 0.15 m, ángulo de E₂ = 37° con respecto a la horizontal</li>
+        <li><strong>Concepto a aplicar:</strong> Suma vectorial con componentes x-y</li>
+        <li><strong>¿Por qué hay ángulo?</strong> El punto B no está alineado con q₂ → hay componentes horizontal y vertical</li>
+        <li><strong>Fórmulas:</strong> \(E = kQ/r^2\), descomposición: \(E_x = E\cos\theta\), \(E_y = E\sin\theta\), Pitágoras final</li>
+      </ul>
+    </div>
+    <div class="solucion-label">⚙️ Solución Completa</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">E₁ por q₁ (−6 nC) en punto B</div>
+        q₁ está directamente arriba de B → el campo de q₁ en B apunta <strong>hacia arriba</strong> (negativa atrae):
+        \[ E_1 = \dfrac{(9\times10^9)(6\times10^{-9})}{(0.09)^2} = \dfrac{54}{8.1\times10^{-3}} = 6.67\times10^3 \text{ N/C, hacia arriba} \]
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">E₂ por q₂ (+8 nC) en punto B — con ángulo</div>
+        q₂ es positiva → campo se aleja de q₂ → apunta desde q₂ hacia B, que está a 37° S del O desde q₂:
+        \[ E_2 = \dfrac{(9\times10^9)(8\times10^{-9})}{(0.15)^2} = \dfrac{72}{0.0225} = 3.20\times10^3 \text{ N/C, a 37° S del O} \]
+      </div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Descomposición de E₂ en componentes</div>
+        \[ E_{2x} = -(3.20\times10^3)\cos 37° = -(3.20\times10^3)(0.7986) = -2.56\times10^3 \text{ N/C} \]
+        \[ E_{2y} = -(3.20\times10^3)\sin 37° = -(3.20\times10^3)(0.6018) = -1.93\times10^3 \text{ N/C} \]
+        (Negativo porque apuntan hacia el oeste y hacia abajo)
+      </div></div>
+      <div class="step"><div class="step-num">④</div><div class="step-content"><div class="step-label">Suma de componentes totales</div>
+        E₁ es solo vertical (hacia arriba = +y): \(E_{1x} = 0\), \(E_{1y} = +6.67\times10^3\)
+        \[ E_x = 0 + (-2.56\times10^3) = -2.56\times10^3 \text{ N/C} \]
+        \[ E_y = 6.67\times10^3 + (-1.93\times10^3) = +4.74\times10^3 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">⑤</div><div class="step-content"><div class="step-label">Magnitud final (Pitágoras) y ángulo</div>
+        \[ E = \sqrt{(-2.56\times10^3)^2 + (4.74\times10^3)^2} = \sqrt{6.55\times10^6 + 22.47\times10^6} \]
+        \[ E = \sqrt{29.02\times10^6} = 5.39\times10^3 \text{ N/C} \]
+        \[ \theta = \arctan\left(\dfrac{|E_y|}{|E_x|}\right) = \arctan\left(\dfrac{4.74}{2.56}\right) = \arctan(1.852) = 61.6° \]
+        Dirección: 61.6° al N del O → cuadrante II (x negativo, y positivo)
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E = 5.39×10³ N/C = 5.39 kN/C, a 61.6° al norte del oeste</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Lo que aprendiste</div>Cuando los campos no están alineados, <strong>siempre usa componentes x-y</strong>. El procedimiento es: calcular cada |E| → analizar dirección → descomponer → sumar por eje → Pitágoras. Este es el método universal para cualquier problema de campo resultante.</div>
+    <div class="alt-box"><div class="a-label">🔄 Método alternativo</div>Se puede hacer con notación vectorial unitaria: \(\vec{E}_1 = 6.67\hat{j} \text{ kN/C}\) y \(\vec{E}_2 = -2.56\hat{i} - 1.93\hat{j} \text{ kN/C}\), sumando componente a componente. Mismo resultado.</div>
+    <div class="error-box"><div class="e-label">⚠️ Errores Comunes</div>
+      <ul>
+        <li>Error 1: Sumar magnitudes sin usar componentes → da un número incorrecto.</li>
+        <li>Error 2: Tomar el ángulo desde el eje equivocado al descomponer. Siempre dibuja primero.</li>
+        <li>Error 3: Olvidar que q₁ negativa hace que E apunte hacia ella (no desde ella).</li>
+      </ul>
+    </div>
+    <div class="domina-box"><div class="d-label">🎯 ¿Por qué este problema domina el tema?</div>Combina: (1) campo de carga puntual, (2) análisis de direcciones no trivial, (3) suma vectorial con componentes, (4) Pitágoras y trigonometría. Dominar este tipo cubre el 70% de los problemas de examen sobre campo eléctrico.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 8 — MAESTRO -->
+<div class="problem-card lvl-maestro">
+  <div class="prob-header">
+    <span class="prob-id">Problema #8 🎯 MAESTRO</span>
+    <div class="prob-badges"><span class="stars" style="color:#FFD700">⭐⭐⭐</span><span class="badge-maestro">MAESTRO</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      Cargas de −2 μC y +4 μC se ubican en las esquinas de la base de un triángulo equilátero cuyos lados miden 10 cm. ¿Cuáles son la magnitud y la dirección del campo eléctrico en la esquina de arriba? (Problema 24.29)
+    </div>
+    <div class="antes-resolver">
+      <div class="label">🧠 Antes de resolver</div>
+      <ul>
+        <li><strong>Geometría:</strong> Triángulo equilátero, lados = 10 cm = 0.10 m. Todos los lados iguales → r₁ = r₂ = 0.10 m desde cada carga hasta la cúspide.</li>
+        <li><strong>Ángulo interno del triángulo equilátero:</strong> 60°. El ángulo de cada lado con la vertical = 30°.</li>
+        <li><strong>Dirección de E₁ (−2 μC):</strong> apunta hacia la carga negativa → hacia abajo-izquierda desde la cúspide.</li>
+        <li><strong>Dirección de E₂ (+4 μC):</strong> apunta lejos de la carga positiva → hacia arriba-izquierda desde q₂ = hacia arriba desde la cúspide no, sino hacia la cúspide desde q₂ afuera... se aleja de q₂ → desde q₂ hacia la cúspide: apunta hacia arriba-izquierda.</li>
+      </ul>
+    </div>
+    <div class="solucion-label">⚙️ Solución Completa</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Magnitud de cada campo (igual r)</div>
+        \[ E_1 = \dfrac{(9\times10^9)(2\times10^{-6})}{(0.10)^2} = \dfrac{18000}{0.01} = 1.80\times10^6 \text{ N/C} \]
+        \[ E_2 = \dfrac{(9\times10^9)(4\times10^{-6})}{(0.10)^2} = \dfrac{36000}{0.01} = 3.60\times10^6 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Establecer sistema de referencia y ángulos</div>
+        Coloca q₁ (−2μC) a la izquierda y q₂ (+4μC) a la derecha. La cúspide es el punto de arriba.<br>
+        En triángulo equilátero, cada lado forma 60° con la base.<br>
+        — E₁: La carga es negativa → campo apunta hacia q₁ (abajo-izquierda desde la cúspide). Ángulo con horizontal: 60° bajo la horizontal hacia la izquierda = 240° (o −60° respecto al eje x).<br>
+        — E₂: La carga es positiva → campo se aleja de q₂ (hacia arriba-derecha desde q₂, que es hacia la cúspide) = apunta hacia arriba-izquierda en la cúspide. Ángulo: 120° desde el eje +x positivo.
+      </div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Componentes de E₁ (ángulo 240° = apunta abajo-izquierda)</div>
+        \[ E_{1x} = 1.80\times10^6 \cos(240°) = 1.80\times10^6 \times(-0.5) = -9.0\times10^5 \text{ N/C} \]
+        \[ E_{1y} = 1.80\times10^6 \sin(240°) = 1.80\times10^6 \times(-0.866) = -1.559\times10^6 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">④</div><div class="step-content"><div class="step-label">Componentes de E₂ (ángulo 120° = apunta arriba-izquierda)</div>
+        \[ E_{2x} = 3.60\times10^6 \cos(120°) = 3.60\times10^6 \times(-0.5) = -1.80\times10^6 \text{ N/C} \]
+        \[ E_{2y} = 3.60\times10^6 \sin(120°) = 3.60\times10^6 \times(0.866) = +3.118\times10^6 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">⑤</div><div class="step-content"><div class="step-label">Suma de componentes y magnitud final</div>
+        \[ E_x = -9.0\times10^5 + (-1.80\times10^6) = -2.70\times10^6 \text{ N/C} \]
+        \[ E_y = -1.559\times10^6 + 3.118\times10^6 = +1.559\times10^6 \text{ N/C} \]
+        \[ E = \sqrt{(-2.70\times10^6)^2 + (1.559\times10^6)^2} = \sqrt{7.29+2.43}\times10^6 = \sqrt{9.72}\times10^6 \approx 3.12\times10^6 \text{ N/C} \]
+        \[ \theta = \arctan\left(\dfrac{1.559}{2.70}\right) = \arctan(0.577) = 30° \text{ sobre el eje −x} = 150° \text{ desde eje +x} \]
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E = 3.12×10⁶ N/C, a 150° (arriba hacia la izquierda)</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Lo que aprendiste</div>En geometrías triangulares o simétricas, la clave es <strong>establecer el sistema de referencia y los ángulos exactos</strong> antes de descomponer. El error más común es mezclar ángulos. Triángulo equilátero siempre tiene ángulos internos de 60°.</div>
+    <div class="error-box"><div class="e-label">⚠️ Errores Comunes</div>
+      <ul>
+        <li>Error 1: Usar los ángulos del triángulo sin adaptarlos al sistema de referencia x-y elegido.</li>
+        <li>Error 2: Olvidar que el campo de una carga negativa apunta hacia la carga, no desde ella.</li>
+        <li>Error 3: No dibujar el diagrama → imposible determinar los ángulos correctamente.</li>
+      </ul>
+    </div>
+    <div class="domina-box"><div class="d-label">🎯 ¿Por qué este problema domina el tema?</div>Combina geometría no trivial + suma vectorial + análisis de dirección en los dos tipos de carga. Quien lo domine puede resolver cualquier problema de campo resultante con cargas en posiciones arbitrarias.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 9 -->
+<div class="problem-card lvl-inter">
+  <div class="prob-header">
+    <span class="prob-id">Problema #9</span>
+    <div class="prob-badges"><span class="stars">⭐⭐</span><span class="badge-probable">🎯 PROBABLE</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      La densidad de carga en cada una de dos placas paralelas (condensador) es σ = 4 μC/m². ¿Cuál es la intensidad del campo eléctrico entre las placas? (Problema 24.27)
+    </div>
+    <div class="antes-resolver">
+      <div class="label">🧠 Antes de resolver</div>
+      <ul>
+        <li><strong>Dato:</strong> σ = 4 μC/m² = 4×10⁻⁶ C/m²</li>
+        <li><strong>Fórmula para condensador (dos placas opuestas):</strong> \(E = \sigma/\varepsilon_0\)</li>
+        <li><strong>Ojo:</strong> No confundir con placa simple \(E = \sigma/2\varepsilon_0\)</li>
+      </ul>
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Aplicar la fórmula del condensador</div>
+        \[ E = \dfrac{\sigma}{\varepsilon_0} = \dfrac{4\times10^{-6} \text{ C/m}^2}{8.85\times10^{-12} \text{ C}^2/(\text{N·m}^2)} \]
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Calcular</div>
+        \[ E = \dfrac{4\times10^{-6}}{8.85\times10^{-12}} = 4.52\times10^5 \text{ N/C} \]
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E = 4.52×10⁵ N/C entre las placas</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Concepto</div>El condensador tiene campo doble al de una placa sola porque ambas placas aportan su campo en la misma dirección entre ellas. Fuera de las placas, los campos se cancelan (E = 0).</div>
+    <div class="error-box"><div class="e-label">⚠️ Error Típico</div>Usar \(\sigma/2\varepsilon_0\) (fórmula de placa sola) en vez de \(\sigma/\varepsilon_0\) (condensador). El condensador tiene el doble de campo.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 10 -->
+<div class="problem-card lvl-inter">
+  <div class="prob-header">
+    <span class="prob-id">Problema #10</span>
+    <div class="prob-badges"><span class="stars">⭐⭐</span><span class="badge-probable">🎯 PROBABLE</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      Una carga de +5 nC se halla sobre la superficie de una esfera metálica hueca con radio de 3 cm. Aplica la Ley de Gauss para hallar: (a) el campo a 1 cm fuera de la superficie, (b) el campo a 1 cm dentro de la superficie. (Problema 24.19)
+    </div>
+    <div class="antes-resolver">
+      <div class="label">🧠 Antes de resolver</div>
+      <ul>
+        <li><strong>Parte a:</strong> Fuera de la esfera → toda la carga está encerrada → se aplica Ley de Gauss con superficie esférica a r = 3+1 = 4 cm = 0.04 m</li>
+        <li><strong>Parte b:</strong> Dentro del conductor → E = 0 (Ley de Gauss: carga encerrada = 0)</li>
+      </ul>
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Parte (a) — Fuera de la esfera, r = 0.04 m</div>
+        La carga total encerrada es q = 5×10⁻⁹ C. La Ley de Gauss en esfera: \(\varepsilon_0 E (4\pi r^2) = q\), que equivale a \(E = kq/r^2\):
+        \[ E = \dfrac{(9\times10^9)(5\times10^{-9})}{(0.04)^2} = \dfrac{45}{1.6\times10^{-3}} = 2.81\times10^4 \text{ N/C} \]
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Parte (b) — Dentro del conductor</div>
+        Por Ley de Gauss: si construimos una superficie gaussiana dentro del metal, la carga encerrada = 0 (toda la carga libre se va a la superficie exterior).
+        \[ \varepsilon_0 E A = 0 \implies \boxed{E = 0} \]
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">(a) E = 2.81×10⁴ N/C afuera &nbsp;|&nbsp; (b) E = 0 adentro</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Concepto</div>Regla de oro: el campo eléctrico dentro de cualquier conductor en equilibrio es siempre cero. Toda la carga reside en la superficie exterior. La Ley de Gauss lo demuestra elegantemente.</div>
+    <div class="error-box"><div class="e-label">⚠️ Error Típico</div>Pensar que la carga dentro de la esfera hueca crea un campo. No lo hace si está sobre el conductor: toda la carga libre migra a la superficie exterior.</div>
+  </div>
+</div>
+
+<!-- PROBLEMA 11 — MAESTRO -->
+<div class="problem-card lvl-maestro">
+  <div class="prob-header">
+    <span class="prob-id">Problema #11 🎯 MAESTRO</span>
+    <div class="prob-badges"><span class="stars" style="color:#FFD700">⭐⭐⭐</span><span class="badge-maestro">MAESTRO</span></div>
+  </div>
+  <div class="prob-body">
+    <div class="enunciado">
+      <div class="label">📋 Enunciado</div>
+      Una partícula de 20 mg se encuentra en un campo descendente uniforme de 2000 N/C. ¿Cuántos electrones excedentes habrá que colocar sobre la partícula para que las fuerzas eléctrica y gravitacional se equilibren? (Problema 24.31)
+    </div>
+    <div class="antes-resolver">
+      <div class="label">🧠 Antes de resolver — Identifica</div>
+      <ul>
+        <li><strong>Datos:</strong> m = 20 mg = 20×10⁻⁶ kg, E = 2000 N/C (descendente), cada electrón tiene q = 1.6×10⁻¹⁹ C</li>
+        <li><strong>Condición de equilibrio:</strong> F_eléctrica = F_gravitacional → qE = mg</li>
+        <li><strong>Concepto clave:</strong> El campo es descendente → para que la fuerza eléctrica sea ascendente (equilibrio), la carga debe ser negativa. Electrones son negativos ✓</li>
+        <li><strong>Fórmulas:</strong> \(W = mg\), \(F_E = qE\), \(n = q_{total}/e\)</li>
+      </ul>
+    </div>
+    <div class="solucion-label">⚙️ Solución Completa</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Calcular el peso de la partícula</div>
+        \[ W = mg = (20\times10^{-6} \text{ kg})(9.8 \text{ m/s}^2) = 1.96\times10^{-4} \text{ N} \]
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Condición de equilibrio</div>
+        Para equilibrio: \(F_E = W\), es decir \(qE = mg\). Despejando la carga total necesaria:
+        \[ q = \dfrac{mg}{E} = \dfrac{1.96\times10^{-4} \text{ N}}{2000 \text{ N/C}} = 9.80\times10^{-8} \text{ C} \]
+      </div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Número de electrones necesarios</div>
+        \[ n = \dfrac{q}{e} = \dfrac{9.80\times10^{-8} \text{ C}}{1.6\times10^{-19} \text{ C/electrón}} = 6.125\times10^{11} \text{ electrones} \]
+      </div></div>
+      <div class="step"><div class="step-num">④</div><div class="step-content"><div class="step-label">Verificación de sentido físico</div>
+        El campo apunta hacia abajo. Los electrones (carga −) sienten la fuerza en sentido contrario al campo = hacia arriba. Eso equilibra el peso que va hacia abajo. ✓
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">n = 6.125×10¹¹ electrones excedentes</div></div>
+    <div class="lesson-box"><div class="l-label">💡 Lo que aprendiste</div>Este problema conecta tres conceptos: <strong>fuerza gravitacional, fuerza eléctrica y equilibrio</strong>. La condición qE = mg es el núcleo. Siempre analiza la dirección de la fuerza eléctrica necesaria para determinar si se necesitan cargas + o −.</div>
+    <div class="alt-box"><div class="a-label">🔄 Método alternativo</div>Se puede expresar la carga total como \(q = ne\) directamente en la ecuación de equilibrio: \(neE = mg\) → \(n = mg/(eE)\). Mismo resultado, un paso menos.</div>
+    <div class="error-box"><div class="e-label">⚠️ Errores Comunes</div>
+      <ul>
+        <li>Error 1: No convertir mg a kg. 20 mg ≠ 0.02 kg. Siempre: 1 mg = 10⁻⁶ kg.</li>
+        <li>Error 2: Poner cargas positivas cuando el campo es descendente. Para equilibrar el peso, la fuerza eléctrica debe ir hacia arriba → carga negativa (electrones).</li>
+        <li>Error 3: Dividir mal. n = q_total ÷ carga_por_electrón, no al revés.</li>
+      </ul>
+    </div>
+    <div class="domina-box"><div class="d-label">🎯 ¿Por qué este problema domina el tema?</div>Combina tres áreas: mecánica (peso), electricidad (fuerza eléctrica) y naturaleza de la carga (electrones). Es el tipo de problema integrador que aparece constantemente en exámenes porque evalúa comprensión real, no solo cálculo.</div>
+  </div>
+</div>
+
+<hr class="section-sep">
+
+<!-- SECCIÓN EXTRA -->
+<div id="extra">
+  <div class="sec-header"><div class="num">★</div><h2>Problemas Desafiantes — Nivel Extra</h2></div>
+  <div class="sec-body">
+    <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px">Estos problemas van más allá del nivel estándar. Son opcionales pero muy recomendables si quieres el máximo en el examen.</p>
+  </div>
+</div>
+
+<!-- EXTRA 1 -->
+<div class="extra-card">
+  <div class="extra-header">★ DESAFÍO #1 [⭐⭐⭐] — Campo en punto sobre eje perpendicular con dos cargas de signos opuestos</div>
+  <div class="extra-body">
+    <div class="enunciado" style="border-color:#FFA040;background:#FFF8F0">
+      <div class="label">📋 Enunciado</div>
+      Una carga de −20 μC se halla 50 mm a la derecha de una carga de +49 μC. ¿Cuál es el campo resultante en un punto situado 24 mm directamente arriba de la carga de −20 μC? (Problema 24.15 del libro. Respuesta: 2.82×10⁸ N/C, 297.3°)
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Establecer coordenadas</div>
+        Coloca −20 μC en el origen. El punto P está 24 mm arriba = (0, 0.024 m).<br>
+        La carga +49 μC está 50 mm a la izquierda de −20 μC: posición (−0.05, 0) m.
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Campo E₁ por −20 μC (carga en el origen, punto en (0, 0.024))</div>
+        r₁ = 0.024 m, dirección: hacia la carga negativa = hacia abajo (−y)
+        \[ E_1 = \dfrac{(9\times10^9)(20\times10^{-6})}{(0.024)^2} = \dfrac{180000}{5.76\times10^{-4}} = 3.125\times10^8 \text{ N/C, ↓} \]
+      </div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Distancia de +49 μC al punto P</div>
+        +49 μC en (−0.05, 0), punto P en (0, 0.024):
+        \[ r_2 = \sqrt{(0.05)^2 + (0.024)^2} = \sqrt{0.0025+0.000576} = \sqrt{0.003076} = 0.05546 \text{ m} \]
+      </div></div>
+      <div class="step"><div class="step-num">④</div><div class="step-content"><div class="step-label">Campo E₂ por +49 μC</div>
+        \[ E_2 = \dfrac{(9\times10^9)(49\times10^{-6})}{(0.05546)^2} = \dfrac{441000}{3.076\times10^{-3}} = 1.434\times10^8 \text{ N/C} \]
+        Ángulo desde +x: \(\theta = \arctan(0.024/0.05) = \arctan(0.48) = 25.6°\) sobre +x (hacia P desde q₂)
+      </div></div>
+      <div class="step"><div class="step-num">⑤</div><div class="step-content"><div class="step-label">Componentes y suma final</div>
+        E₁: \((0,\; -3.125\times10^8)\)<br>
+        E₂: \((+E_2\cos25.6°,\; +E_2\sin25.6°) = (+1.292\times10^8,\; +6.20\times10^7)\)<br>
+        \[ E_x = 1.292\times10^8 \quad E_y = -3.125\times10^8 + 6.20\times10^7 = -2.505\times10^8 \]
+        \[ E = \sqrt{(1.292)^2+(2.505)^2}\times10^8 = \sqrt{1.67+6.28}\times10^8 = 2.82\times10^8 \text{ N/C} \]
+        \[ \theta = \arctan(2.505/1.292) = 62.7° \text{ bajo el eje +x} = 297.3° \]
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">E = 2.82×10⁸ N/C, a 297.3°</div></div>
+    <div class="error-box" style="border-color:#FFA040;background:#FFF8EE;color:#7A4D0A">
+      <div class="e-label" style="color:#7A4D0A">🧠 ¿Por qué es desafiante?</div>
+      El punto no está alineado con ninguna carga, requiere calcular distancias con Pitágoras, descomponer dos campos en ángulos distintos y manejar con cuidado los signos de cada componente.
+    </div>
+  </div>
+</div>
+
+<!-- EXTRA 2 -->
+<div class="extra-card">
+  <div class="extra-header">★ DESAFÍO #2 [⭐⭐⭐] — Punto nulo entre dos cargas positivas</div>
+  <div class="extra-body">
+    <div class="enunciado" style="border-color:#FFA040;background:#FFF8F0">
+      <div class="label">📋 Enunciado</div>
+      Dos cargas de +16 μC y +8 μC están separadas 200 mm. ¿En qué punto sobre la recta que las une es el campo eléctrico igual a cero? (Problema 24.36)
+    </div>
+    <div class="solucion-label">⚙️ Solución</div>
+    <div class="solucion-block">
+      <div class="step"><div class="step-num">①</div><div class="step-content"><div class="step-label">Configuración</div>
+        Sea x la distancia desde la carga de +16 μC hasta el punto nulo. Entonces (0.20 − x) es la distancia desde +8 μC al punto nulo.
+        El punto debe estar entre las dos cargas (ambas son positivas → sus campos se oponen en el espacio intermedio).
+      </div></div>
+      <div class="step"><div class="step-num">②</div><div class="step-content"><div class="step-label">Condición E = 0</div>
+        \[ \dfrac{k(16\times10^{-6})}{x^2} = \dfrac{k(8\times10^{-6})}{(0.20-x)^2} \]
+        Simplificando:
+        \[ \dfrac{16}{x^2} = \dfrac{8}{(0.20-x)^2} \]
+        \[ 16(0.20-x)^2 = 8x^2 \]
+        \[ 2(0.20-x)^2 = x^2 \]
+      </div></div>
+      <div class="step"><div class="step-num">③</div><div class="step-content"><div class="step-label">Resolver la ecuación</div>
+        \[ \sqrt{2}(0.20-x) = x \]
+        \[ 0.20\sqrt{2} = x + x\sqrt{2} = x(1+\sqrt{2}) \]
+        \[ x = \dfrac{0.20\times1.414}{1+1.414} = \dfrac{0.2828}{2.414} = 0.1171 \text{ m} = 117 \text{ mm} \]
+      </div></div>
+    </div>
+    <div class="answer-box"><div class="ans-label">✅ Respuesta Final</div><div class="ans-val">El campo es cero a 117 mm de la carga de +16 μC (más cerca de la carga menor)</div></div>
+    <div class="error-box" style="border-color:#FFA040;background:#FFF8EE;color:#7A4D0A">
+      <div class="e-label" style="color:#7A4D0A">🧠 ¿Por qué es desafiante?</div>
+      Requiere plantear la igualdad de campos, resolver una ecuación cuadrática-raíz, e interpretar físicamente que el punto nulo está más cerca de la carga menor.
+    </div>
+  </div>
+</div>
+
+<hr class="section-sep">
+
+<!-- TABLA DE ERRORES COMUNES -->
+<div id="errores">
+  <div class="sec-header"><div class="num">⚠️</div><h2>Tabla de Errores Comunes</h2></div>
+  <div class="sec-body">
+    <table class="err-table">
+      <thead>
+        <tr><th>Error típico</th><th>Cómo evitarlo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Usar el signo de Q en el cálculo de la magnitud de E</td><td>La magnitud siempre es positiva. Usa |Q|. El signo solo determina la dirección.</td></tr>
+        <tr><td>Confundir placa simple con condensador: usar σ/2ε₀ cuando son dos placas</td><td>¿Hay una placa? → σ/2ε₀. ¿Hay dos placas con cargas opuestas (condensador)? → σ/ε₀.</td></tr>
+        <tr><td>Sumar magnitudes de E directamente sin analizar direcciones</td><td>Siempre dibuja o razona la dirección de cada campo antes de sumar. Establece +/− para cada eje.</td></tr>
+        <tr><td>No convertir unidades antes de sustituir</td><td>Convierte siempre: μC → C (×10⁻⁶), nC → C (×10⁻⁹), mm → m (×10⁻³), cm → m (×10⁻²).</td></tr>
+        <tr><td>Creer que el campo existe solo donde hay una carga</td><td>El campo existe en todo el espacio. Solo necesitas saber la distancia a la carga que lo crea.</td></tr>
+        <tr><td>Asumir que hay campo dentro de un conductor metálico</td><td>Dentro de un conductor en equilibrio, E = 0 siempre. Toda la carga está en la superficie exterior.</td></tr>
+        <tr><td>Equivocarse con el ángulo al descomponer en triángulos</td><td>Dibuja el diagrama con los vectores. Identifica el ángulo con respecto al eje x (no con otro vector).</td></tr>
+        <tr><td>Olvidar que la dirección del campo de una carga negativa apunta hacia ella</td><td>Regla: campo de + sale, campo de − entra. Imagina la carga de prueba positiva que se movería.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="section-sep">
+
+<!-- CHEATSHEET -->
+<div id="cheatsheet" class="cheatsheet">
+  <h2>🗂️ CHEATSHEET FINAL — Lo que debes memorizar para el examen</h2>
+  <div class="cs-grid">
+
+    <div class="cs-card">
+      <h3>📐 Fórmulas Clave</h3>
+      <div class="cs-formula">
+        <div class="cf-eq">\( E = F/q \)</div>
+        <div class="cf-when">→ Cuando dan F y q, buscan E (o viceversa)</div>
+      </div>
+      <div class="cs-formula">
+        <div class="cf-eq">\( E = kQ/r^2 \)</div>
+        <div class="cf-when">→ Campo de una sola carga puntual</div>
+      </div>
+      <div class="cs-formula">
+        <div class="cf-eq">\( \vec{E} = \vec{E}_1 + \vec{E}_2 + \cdots \)</div>
+        <div class="cf-when">→ Varias cargas: suma vectorial (con componentes)</div>
+      </div>
+      <div class="cs-formula">
+        <div class="cf-eq">\( E = \sigma / 2\varepsilon_0 \)</div>
+        <div class="cf-when">→ Campo de una placa infinita sola</div>
+      </div>
+      <div class="cs-formula">
+        <div class="cf-eq">\( E = \sigma / \varepsilon_0 \)</div>
+        <div class="cf-when">→ Campo entre dos placas (condensador)</div>
+      </div>
+      <div class="cs-formula">
+        <div class="cf-eq">\( \sum \varepsilon_0 E_n A = \sum q \)</div>
+        <div class="cf-when">→ Ley de Gauss (geometrías simétricas)</div>
+      </div>
+    </div>
+
+    <div class="cs-card">
+      <h3>🔑 Constantes</h3>
+      <ul>
+        <li><strong>k</strong> = 9×10⁹ N·m²/C²</li>
+        <li><strong>ε₀</strong> = 8.85×10⁻¹² C²/(N·m²)</li>
+        <li><strong>e</strong> (electrón) = 1.6×10⁻¹⁹ C</li>
+        <li><strong>1 μC</strong> = 10⁻⁶ C</li>
+        <li><strong>1 nC</strong> = 10⁻⁹ C</li>
+      </ul>
+      <h3 style="margin-top:12px">⚖️ Reglas de dirección</h3>
+      <ul>
+        <li>Campo de carga <strong>+</strong>: sale radialmente</li>
+        <li>Campo de carga <strong>−</strong>: entra radialmente</li>
+        <li>Fuerza sobre carga <strong>+</strong>: misma dirección que E</li>
+        <li>Fuerza sobre carga <strong>−</strong>: dirección opuesta a E</li>
+        <li>Dentro de conductor: <strong>E = 0</strong></li>
+      </ul>
+    </div>
+
+    <div class="cs-card">
+      <h3>🗺️ Tabla de decisión rápida</h3>
+      <div class="decision-grid">
+        <table>
+          <tr><th>Te dan</th><th>Usa</th></tr>
+          <tr><td>F, q → busco E</td><td>\(E = F/q\)</td></tr>
+          <tr><td>Q, r → busco E</td><td>\(E = kQ/r^2\)</td></tr>
+          <tr><td>E, q → busco F</td><td>\(F = qE\)</td></tr>
+          <tr><td>2+ cargas, punto</td><td>Suma vectorial</td></tr>
+          <tr><td>σ, placa simple</td><td>\(\sigma/2\varepsilon_0\)</td></tr>
+          <tr><td>σ, condensador</td><td>\(\sigma/\varepsilon_0\)</td></tr>
+          <tr><td>Esfera/placa, simetría</td><td>Ley de Gauss</td></tr>
+          <tr><td>Interior conductor</td><td>E = 0</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="cs-card">
+      <h3>🔢 Procedimiento suma vectorial</h3>
+      <ul>
+        <li>① Calcular |E| de cada carga con \(kQ/r^2\)</li>
+        <li>② Analizar dirección de cada E (carga + o −)</li>
+        <li>③ Descomponer: \(E_x = E\cos\theta\), \(E_y = E\sin\theta\)</li>
+        <li>④ Sumar componentes: \(\Sigma E_x\), \(\Sigma E_y\)</li>
+        <li>⑤ Magnitud: \(E = \sqrt{E_x^2 + E_y^2}\)</li>
+        <li>⑥ Ángulo: \(\theta = \arctan(|E_y/E_x|)\)</li>
+      </ul>
+      <h3 style="margin-top:12px">🚫 Top 3 errores a evitar</h3>
+      <ul>
+        <li>1. No convertir unidades → resultado 10⁶ veces incorrecto</li>
+        <li>2. Sumar magnitudes sin analizar direcciones</li>
+        <li>3. Usar σ/2ε₀ en condensadores (debe ser σ/ε₀)</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- TABLA DE RESPUESTAS -->
+  <div style="margin-top:20px">
+    <h3 style="color:#90CDF4;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">📋 Respuestas Rápidas</h3>
+    <div class="decision-grid">
+      <table>
+        <tr><th>Problema</th><th>Enunciado compacto</th><th>Respuesta</th></tr>
+        <tr><td>#1</td><td>F=8×10⁻⁴N, q=2μC → E</td><td>400 N/C ↓</td></tr>
+        <tr><td>#2</td><td>Electrón en E=400N/C↓ → F</td><td>6.40×10⁻¹⁷ N ↑</td></tr>
+        <tr><td>#3</td><td>E a 2m de −12μC</td><td>2.70×10⁴ N/C hacia Q</td></tr>
+        <tr><td>#4</td><td>Punto medio: +6nC y −9nC, 40mm</td><td>3.38×10⁵ N/C →q₂</td></tr>
+        <tr><td>#5</td><td>Punto medio: +4nC y +8nC, 80mm</td><td>2.25×10⁴ N/C ←</td></tr>
+        <tr><td>#6</td><td>Punto A, −6nC y +8nC (12cm)</td><td>4.50×10⁴ N/C ←</td></tr>
+        <tr><td>#7</td><td>Punto B con ángulo 37°</td><td>5.39 kN/C, 61.6° N del O</td></tr>
+        <tr><td>#8</td><td>Triángulo equilátero −2μC y +4μC</td><td>3.12×10⁶ N/C, 150°</td></tr>
+        <tr><td>#9</td><td>Condensador σ=4μC/m²</td><td>4.52×10⁵ N/C</td></tr>
+        <tr><td>#10</td><td>Esfera hueca +5nC, afuera/adentro</td><td>2.81×10⁴ N/C / 0</td></tr>
+        <tr><td>#11</td><td>Equilibrio: 20mg, E=2000N/C</td><td>6.125×10¹¹ electrones</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
